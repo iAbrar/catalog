@@ -9,7 +9,6 @@ engine = create_engine('sqlite:///recipes.db?check_same_thread=False')
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
-st commit by calling
 # session.rollback()
 session = DBSession()
 
