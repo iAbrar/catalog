@@ -21,22 +21,22 @@ def showCategories():
 
 # Show all recipes
 @app.route('/catalog/<int:category_id>/recipes/')
-def showRecipes():
+def showRecipes(category_id):
     return "All recipes"
 
 # create a recipy
 @app.route('/catalog/<int:category_id>/recipes/new/')
-def newRecipy():
+def newRecipy(category_id):
     return " recipy name"
 
 # edit specific recipy
 @app.route('/catalog/<int:category_id>/recipy/<int:recipy_id>/edit/')
-def editRecipy():
+def editRecipy(category_id,recipy_id):
     return " recipy editing"
 
 # delete specific recipy
 @app.route('/catalog/<int:category_id>/recipy/<int:recipy_id>/delete/')
-def deleteRecipy():
+def deleteRecipy(category_id,recipy_id):
     return " recipy deleted"
 
 
