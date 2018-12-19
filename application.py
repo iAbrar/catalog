@@ -47,7 +47,9 @@ def editRecipy(category_id,recipy_id):
 # delete specific recipy
 @app.route('/catalog/<int:category_id>/recipy/<int:recipy_id>/delete/')
 def deleteRecipy(category_id,recipy_id):
-    return " recipy deleted"
+    category = session.query(Category).filter_by(id=category_id).one()
+    item = session.query(Item).filter_by(id=recipy_id).one()
+    return render_template('delete.html', category=category, item=item)
 
 
 if __name__ == '__main__':
