@@ -1,6 +1,20 @@
 {% extends "main.html" %}
 {% block content %}
 <div class="row">
-
+<h1>Private Home</h1>
+<a href="#">log out</a>
+</div>
+ <h2>Categories</h2>
+<div class="row">
+    {% for category in categories %}
+    <div class="col">
+        <h3><a href="#">{{category.title}}</a></h3>
+        {% for item in items %}
+        {% if item.category_id == category.id %}
+        <h4><a href="#">{{item.title}}</a></h4>
+        {% endif %}
+        {% endfor %}
+    </div>
+     {% endfor %}
 </div>
 {% endblock %}
