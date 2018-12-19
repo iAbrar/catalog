@@ -1,9 +1,11 @@
-from flask import Flask
-app = Flask(__name__)
+from flask import Flask, render_template
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 from database_setup import Category, Base, Item, User
+
+app = Flask(__name__)
+
 
 engine = create_engine('sqlite:///recipes.db?check_same_thread=False')
 Base.metadata.bind = engine
@@ -17,7 +19,9 @@ session = DBSession()
 @app.route('/')
 @app.route('/catalog/')
 def showCategories():
-    return "All categories"
+    categories = session.query(Category).all()
+    items = session.query(Item).all()
+    return render_template('publichome.html', categories=categories, items=items)
 
 # Show all recipes
 @app.route('/catalog/<int:category_id>/recipes/')
