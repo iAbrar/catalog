@@ -35,7 +35,8 @@ def showRecipes(category_id):
 # create a recipy
 @app.route('/catalog/<int:category_id>/recipes/new/')
 def newRecipy(category_id):
-    return " recipy name"
+    category = session.query(Category).filter_by(id=category_id).one()
+    return render_template('new.html', category_id=category_id)
 
 # edit specific recipy
 @app.route('/catalog/<int:category_id>/recipy/<int:recipy_id>/edit/')
