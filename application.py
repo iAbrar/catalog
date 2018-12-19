@@ -38,7 +38,7 @@ def showRecipy(category_id,recipy_id):
     category = session.query(Category).filter_by(id=category_id).one()
     item = session.query(Item).filter_by(id=recipy_id).one()
 
-    return render_template('category.html', category=category, items=items)
+    return render_template('recipy.html', category=category, item=item)
 # create a recipy
 @app.route('/catalog/<int:category_id>/recipes/new/')
 def newRecipy(category_id):
