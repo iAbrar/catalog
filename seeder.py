@@ -44,6 +44,12 @@ item2 = Item(user_id=1, title="Pan cake", description="with garlic and parmesan"
 session.add(item2)
 session.commit()
 
+item3 = Item(user_id=1, title="Shakshoka", description="with tomato and onion",
+             category=category1)
+
+session.add(item3)
+session.commit()
+
 # Recipes for Lunch
 category2 = Category(user_id=1, title="Lunch")
 
