@@ -32,6 +32,13 @@ def showRecipes(category_id):
 
     return render_template('category.html', category=category, items=items)
 
+# Show one recipy
+@app.route('/catalog/<int:category_id>/recipes/<int:recipy_id>/')
+def showRecipy(category_id,recipy_id):
+    category = session.query(Category).filter_by(id=category_id).one()
+    item = session.query(Item).filter_by(id=recipy_id).one()
+
+    return render_template('category.html', category=category, items=items)
 # create a recipy
 @app.route('/catalog/<int:category_id>/recipes/new/')
 def newRecipy(category_id):
@@ -44,12 +51,13 @@ def editRecipy(category_id,recipy_id):
     category = session.query(Category).filter_by(id=category_id).one()
     item = session.query(Item).filter_by(id=recipy_id).one()
     return render_template('edit.html', category=category, item=item)
+
 # delete specific recipy
 @app.route('/catalog/<int:category_id>/recipy/<int:recipy_id>/delete/')
 def deleteRecipy(category_id,recipy_id):
     category = session.query(Category).filter_by(id=category_id).one()
     item = session.query(Item).filter_by(id=recipy_id).one()
-    return render_template('delete.html', category=category, item=item)
+    return render_template('delete.html', item=item)
 
 
 if __name__ == '__main__':
