@@ -8,10 +8,11 @@
 <div class="row">
     {% for category in categories %}
     <div class="col">
-        <h3><a href="#">{{category.title}}</a></h3>
+        <a href="{{url_for('showRecipes', category_id = category.id) }}">
+            <h3>{{category.title}}</h3></a>
         {% for item in items %}
         {% if item.category_id == category.id %}
-        <h4><a href="#">{{item.title}}</a></h4>
+        <a href="{{url_for('showRecipy', category_id = category.id,recipy_id=item.id) }}"><h4>{{item.title}}</h4></a>
         {% endif %}
         {% endfor %}
     </div>
