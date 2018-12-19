@@ -21,12 +21,16 @@ session = DBSession()
 def showCategories():
     categories = session.query(Category).all()
     items = session.query(Item).all()
+
     return render_template('publichome.html', categories=categories, items=items)
 
 # Show all recipes
 @app.route('/catalog/<int:category_id>/recipes/')
 def showRecipes(category_id):
-    return "All recipes"
+    category = session.query(Category).filter_by(id=category_id).one()
+    items = session.query(Item).filter_by(category_id=category_id).all()
+
+    return render_template('category.html', category=category, items=items)
 
 # create a recipy
 @app.route('/catalog/<int:category_id>/recipes/new/')
