@@ -1,6 +1,39 @@
 {% extends "main.html" %}
 {% block content %}
 <div class="row">
+<h1>Edit a recipy</h1>
+<form action="#" method = "post">
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type ="text" maxlength="100" class="form-control" name="title" value="{{item.title }}">
 
+                    <label for="description">Description:</label>
+                    <textarea class="form-control" maxlength="250" rows="3" name="description">{{item.description}}</textarea>
+
+
+                    <label for="meal">Meal:</label>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="meal" id="meal1" value="Breakfast" {% if item.category_id == '1'%}checked{%endif%}>Breakfast
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="meal" id="meal2" value="Lunch" {% if item.category_id == '2' %}checked{%endif%}>Lunch
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="meal" id="meal3" value="Dinner" {% if item.category_id == '3'%}checked{%endif%}>Dinner
+                      </label>
+                    </div>
+                    <div class="radio">
+
+                    </div>
+                    <button type="submit" class="btn btn-default" id="submit" type="submit">
+                 Save</button>
+
+                </div>
+            </form>
 </div>
 {% endblock %}
