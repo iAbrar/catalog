@@ -5,6 +5,7 @@
 <form action="#" method = "post">
                 <div class="form-group">
                     <label for="title">Title:</label>
+                    <span>{{item.category_id}}</span>
                     <input type ="text" maxlength="100" class="form-control" name="title" value="{{item.title }}">
 
                     <label for="description">Description:</label>
@@ -14,25 +15,26 @@
                     <label for="meal">Meal:</label>
                     <div class="radio">
                       <label>
-                        <input type="radio" name="meal" id="meal1" value="Breakfast" {% if item.category_id == '1'%}checked{%endif%}>Breakfast
+                        <input type="radio" name="meal" id="meal1" value="Breakfast" {% if item.category_id == 1%}checked{%endif%}>Breakfast
                       </label>
                     </div>
                     <div class="radio">
                       <label>
-                        <input type="radio" name="meal" id="meal2" value="Lunch" {% if item.category_id == '2' %}checked{%endif%}>Lunch
+                        <input type="radio" name="meal" id="meal2" value="Lunch" {% if item.category_id == 2 %}checked{%endif%}>Lunch
                       </label>
                     </div>
                     <div class="radio">
                       <label>
-                        <input type="radio" name="meal" id="meal3" value="Dinner" {% if item.category_id == '3'%}checked{%endif%}>Dinner
+                        <input type="radio" name="meal" id="meal3" value="Dinner" {% if item.category_id == 3 %}checked{%endif%}>Dinner
                       </label>
                     </div>
-                    <div class="radio">
 
-                    </div>
                     <button type="submit" class="btn btn-default" id="submit" type="submit">
                  Save</button>
-
+<a href = '{{url_for('showRecipes',category_id = item.category_id)}}'>
+            <button class="btn btn-default ">
+ Cancel</button>
+          </a>
                 </div>
             </form>
 </div>
