@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, jsonify, url_for, flash
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -40,10 +40,15 @@ def showRecipy(category_id,recipy_id):
 
     return render_template('recipy.html', category=category, item=item)
 # create a recipy
-@app.route('/catalog/<int:category_id>/recipes/new/')
+@app.route('/catalog/<int:category_id>/recipes/new/',methods=['GET','POST'])
 def newRecipy(category_id):
-    category = session.query(Category).filter_by(id=category_id).one()
-    return render_template('new.html', category_id=category_id)
+    if request.method == 'POST':
+        newItem = Item(title = request.form['name'],description = request.form['description'],category_id=category_id)
+        session.add(newItem)
+        session.commit()
+        return redirect(url_for('showRecipes',category_id=category_id))
+    else:
+        return render_template('new.html', category_id=category_id)
 
 # edit specific recipy
 @app.route('/catalog/<int:category_id>/recipy/<int:recipy_id>/edit/')
