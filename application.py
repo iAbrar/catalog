@@ -51,11 +51,27 @@ def newRecipy(category_id):
         return render_template('new.html', category_id=category_id)
 
 # edit specific recipy
-@app.route('/catalog/<int:category_id>/recipy/<int:recipy_id>/edit/')
+@app.route('/catalog/<int:category_id>/recipy/<int:recipy_id>/edit/',methods=['GET','POST'])
 def editRecipy(category_id,recipy_id):
-    category = session.query(Category).filter_by(id=category_id).one()
-    item = session.query(Item).filter_by(id=recipy_id).one()
-    return render_template('edit.html', category=category, item=item)
+    editedItem = session.query(Item).filter_by(id=recipy_id).one()
+
+    if request.method == 'POST':
+        if request.form['title']:
+            editedItem.title = request.form['title']
+        if request.form['description']:
+            editedItem.description = request.form['description']
+        if request.form['meal']:
+            if request.form['meal'] == "Breakfast":
+                editedItem.category_id=1
+            elif request.form['meal'] == "Lunch":
+                editedItem.category_id=2
+            else:
+                editedItem.category_id=3
+        session.add(editedItem)
+        session.commit()
+        return redirect(url_for('showRecipes',category_id=editedItem.category_id))
+    else:
+        return render_template('edit.html', category_id=category_id, recipy_id=recipy_id, item =editedItem)
 
 # delete specific recipy
 @app.route('/catalog/<int:category_id>/recipy/<int:recipy_id>/delete/')
