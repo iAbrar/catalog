@@ -74,11 +74,14 @@ def editRecipy(category_id,recipy_id):
         return render_template('edit.html', category_id=category_id, recipy_id=recipy_id, item =editedItem)
 
 # delete specific recipy
-@app.route('/catalog/<int:category_id>/recipy/<int:recipy_id>/delete/')
+@app.route('/catalog/<int:category_id>/recipy/<int:recipy_id>/delete/', methods =['GET','POST'])
 def deleteRecipy(category_id,recipy_id):
-    category = session.query(Category).filter_by(id=category_id).one()
-    item = session.query(Item).filter_by(id=recipy_id).one()
-    return render_template('delete.html', item=item)
+    deletedItem = session.query(Item).filter_by(id=recipy_id).one()
+    if request.method == 'POST':
+        session.delete(deletedItem)
+        session.commit()
+        return redirect(url_for('showRecipes', category_id=category_id))
+    return render_template('delete.html', item=deletedItem)
 
 
 if __name__ == '__main__':
