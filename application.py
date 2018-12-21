@@ -46,6 +46,7 @@ def newRecipy(category_id):
         newItem = Item(title = request.form['name'],description = request.form['description'],category_id=category_id)
         session.add(newItem)
         session.commit()
+        flash("new  recipy %s created!" %(newItem.title))
         return redirect(url_for('showRecipes',category_id=category_id))
     else:
         return render_template('new.html', category_id=category_id)
@@ -69,6 +70,7 @@ def editRecipy(category_id,recipy_id):
                 editedItem.category_id=3
         session.add(editedItem)
         session.commit()
+        flash("Recipy %s Successfully Edited!" %(editedItem.title))
         return redirect(url_for('showRecipes',category_id=editedItem.category_id))
     else:
         return render_template('edit.html', category_id=category_id, recipy_id=recipy_id, item =editedItem)
@@ -80,10 +82,12 @@ def deleteRecipy(category_id,recipy_id):
     if request.method == 'POST':
         session.delete(deletedItem)
         session.commit()
+        flash('Recipy Successfully Deleted')
         return redirect(url_for('showRecipes', category_id=category_id))
     return render_template('delete.html', item=deletedItem)
 
 
 if __name__ == '__main__':
+    app.secret_key = 'super_secret_key'
     app.debug = True
     app.run(host='0.0.0.0', port=5000)
