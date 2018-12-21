@@ -2,6 +2,19 @@
 {% block content %}
 <div class="row">
 <h1>{{category.title}}</h1>
+
+<!--MESSAGE FLASHING  -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+
+<ul>
+{% for message in messages %}
+  <li><strong>{{message}}</strong></li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
 <h2><a href="{{url_for('newRecipy', category_id = category.id) }}">Add new recipy</a></h2>
 {% for item in items %}
 <h3><a href="{{url_for('showRecipy', category_id = category.id,recipy_id=item.id) }}">{{item.title}}</a></h3>
