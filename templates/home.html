@@ -5,6 +5,19 @@
 <a href="#">log out</a>
 </div>
  <h2>Categories</h2>
+ <div class = 'flash'>
+              {% with messages = get_flashed_messages() %}
+      {% if messages %}
+
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+</div>
 <div class="row">
     {% for category in categories %}
     <div class="col">
