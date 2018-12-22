@@ -175,7 +175,9 @@ def gdisconnect():
         del login_session['picture']
         response = make_response(json.dumps('Successfully disconnected.'), 200)
         response.headers['Content-Type'] = 'application/json'
-        return response
+        flash("you are Successfully disconnected")
+        return redirect(url_for('showCategories'))
+
     else:
         response = make_response(json.dumps('Failed to revoke token for given user.', 400))
         response.headers['Content-Type'] = 'application/json'
@@ -193,8 +195,10 @@ def showCategoriesJSON():
 def showCategories():
     categories = session.query(Category).all()
     items = session.query(Item).all()
-
-    return render_template('publichome.html', categories=categories, items=items)
+    if 'username' not in login_session:
+        return render_template('publichome.html', categories=categories, items=items)
+    else:
+        return render_template('home.html', categories=categories, items=items)
 
 # Show all recipes
 @app.route('/catalog/<int:category_id>/recipes/')
