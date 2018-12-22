@@ -6,13 +6,18 @@ from database_setup import Category, Base, Item, User
 
 app = Flask(__name__)
 
-
 engine = create_engine('sqlite:///recipes.db?check_same_thread=False')
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
 # session.rollback()
 session = DBSession()
+
+# JSON APIs to view the catalog
+@app.route('/catalog/JSON')
+def showCategoriesJSON():
+    categories = session.query(Category).all()
+    return jsonify(categories=[i.serialize for i in categories])
 
 
 # Show all categories
