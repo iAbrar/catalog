@@ -218,6 +218,9 @@ def showRecipy(category_id,recipy_id):
 # create a recipy
 @app.route('/catalog/<int:category_id>/recipes/new/',methods=['GET','POST'])
 def newRecipy(category_id):
+    if 'username' not in login_session:
+        return redirect('/login')
+
     if request.method == 'POST':
         newItem = Item(title = request.form['name'],description = request.form['description'],category_id=category_id)
         session.add(newItem)
