@@ -205,7 +205,9 @@ def showCategories():
 def showRecipes(category_id):
     category = session.query(Category).filter_by(id=category_id).one()
     items = session.query(Item).filter_by(category_id=category_id).all()
-
+    if 'username' not in login_session:
+        return render_template('publiccategory.html', categories=categories, items=items)
+    else:
     return render_template('category.html', category=category, items=items)
 
 # Show one recipy
@@ -213,7 +215,9 @@ def showRecipes(category_id):
 def showRecipy(category_id,recipy_id):
     category = session.query(Category).filter_by(id=category_id).one()
     item = session.query(Item).filter_by(id=recipy_id).one()
-
+    if 'username' not in login_session:
+        return render_template('publicrecipy.html', categories=categories, items=items)
+    else:
     return render_template('recipy.html', category=category, item=item)
 # create a recipy
 @app.route('/catalog/<int:category_id>/recipes/new/',methods=['GET','POST'])
