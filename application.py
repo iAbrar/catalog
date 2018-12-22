@@ -245,12 +245,8 @@ def editRecipy(category_id,recipy_id):
         if request.form['description']:
             editedItem.description = request.form['description']
         if request.form['meal']:
-            if request.form['meal'] == "Breakfast":
-                editedItem.category_id=1
-            elif request.form['meal'] == "Lunch":
-                editedItem.category_id=2
-            else:
-                editedItem.category_id=3
+            editedItem.category_id = request.form['meal']
+
         session.add(editedItem)
         session.commit()
         flash("Recipy %s Successfully Edited!" %(editedItem.title))
