@@ -262,6 +262,10 @@ def editRecipy(category_id,recipy_id):
 @app.route('/catalog/<int:category_id>/recipy/<int:recipy_id>/delete/', methods =['GET','POST'])
 def deleteRecipy(category_id,recipy_id):
     deletedItem = session.query(Item).filter_by(id=recipy_id).one()
+    if 'username' not in login_session:
+        return redirect('/login')
+    if restaurantToDelete.user_id != login_session['user_id']:
+        return "<script>function myFunction() {alert('You are not authorized to delete this restaurant. Please create your own restaurant in order to delete.');}</script><body onload='myFunction()''>"
     if request.method == 'POST':
         session.delete(deletedItem)
         session.commit()
