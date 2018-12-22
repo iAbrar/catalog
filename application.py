@@ -208,7 +208,7 @@ def showRecipes(category_id):
     if 'username' not in login_session:
         return render_template('publiccategory.html', categories=categories, items=items)
     else:
-    return render_template('category.html', category=category, items=items)
+        return render_template('category.html', category=category, items=items)
 
 # Show one recipy
 @app.route('/catalog/<int:category_id>/recipes/<int:recipy_id>/')
@@ -218,7 +218,7 @@ def showRecipy(category_id,recipy_id):
     if 'username' not in login_session:
         return render_template('publicrecipy.html', categories=categories, items=items)
     else:
-    return render_template('recipy.html', category=category, item=item)
+        return render_template('recipy.html', category=category, item=item)
 # create a recipy
 @app.route('/catalog/<int:category_id>/recipes/new/',methods=['GET','POST'])
 def newRecipy(category_id):
