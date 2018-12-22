@@ -234,6 +234,10 @@ def newRecipy(category_id):
 @app.route('/catalog/<int:category_id>/recipy/<int:recipy_id>/edit/',methods=['GET','POST'])
 def editRecipy(category_id,recipy_id):
     editedItem = session.query(Item).filter_by(id=recipy_id).one()
+    if 'username' not in login_session:
+        return redirect('/login')
+    if editedRestaurant.user_id != login_session['user_id']:
+        return "<script>function myFunction() {alert('You are not authorized to edit this restaurant. Please create your own restaurant in order to edit.');}</script><body onload='myFunction()''>"
 
     if request.method == 'POST':
         if request.form['title']:
