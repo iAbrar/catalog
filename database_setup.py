@@ -20,6 +20,7 @@ class Category(Base):
     title = Column(String(250), nullable=False)
     user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(User)
+    items =relationship('Item', backref="categoryOfitem", lazy='dynamic')
 
     @property
     def serialize(self):
@@ -27,6 +28,7 @@ class Category(Base):
         return {
             'title': self.title,
             'id': self.id,
+            'items': [i.serialize for i in self.items]
         }
 
 class Item(Base):
@@ -44,6 +46,7 @@ class Item(Base):
     def serialize(self):
         """Return object data in easily serializeable format"""
         return {
+            'category_id': self.category_id,
             'title': self.title,
             'description': self.description,
             'id': self.id,
