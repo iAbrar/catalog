@@ -4,8 +4,7 @@
 <h1>Private Home</h1>
 <a href="#">log out</a>
 </div>
- <h2>Categories</h2>
- <div class = 'flash'>
+<div class = 'flash'>
               {% with messages = get_flashed_messages() %}
       {% if messages %}
 
@@ -18,6 +17,8 @@
     {% endwith %}
 
 </div>
+ <h2>Categories</h2>
+
 <div class="row">
     {% for category in categories %}
     <div class="col">
