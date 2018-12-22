@@ -237,7 +237,7 @@ def editRecipy(category_id,recipy_id):
     if 'username' not in login_session:
         return redirect('/login')
     if editedItem.user_id != login_session['user_id']:
-        return "<script>function myFunction() {alert('You are not authorized to edit this restaurant. Please create your own restaurant in order to edit.');}</script><body onload='myFunction()''>"
+        return "<script>function myFunction() {alert('You are not authorized to edit this recipy. Please create your own recipy in order to edit.');}</script><body onload='myFunction()''>"
 
     if request.method == 'POST':
         if request.form['title']:
@@ -261,7 +261,7 @@ def deleteRecipy(category_id,recipy_id):
     if 'username' not in login_session:
         return redirect('/login')
     if deletedItem.user_id != login_session['user_id']:
-        return "<script>function myFunction() {alert('You are not authorized to delete this restaurant. Please create your own restaurant in order to delete.');}</script><body onload='myFunction()''>"
+        return "<script>function myFunction() {alert('You are not authorized to delete this recipy. Please create your own recipy in order to delete.');}</script><body onload='myFunction()''>"
     if request.method == 'POST':
         session.delete(deletedItem)
         session.commit()
