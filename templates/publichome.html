@@ -25,7 +25,7 @@
             <h3>{{category.title}}</h3></a>
         {% for item in items %}
         {% if item.category_id == category.id %}
-        <a href="{{url_for('showRecipy', category_id = category.id,recipy_id=item.id) }}"><h4>{{item.title}}</h4></a>
+        <a href="{{url_for('showrecipe', category_id = category.id,recipe_id=item.id) }}"><h4>{{item.title}}</h4></a>
         {% endif %}
         {% endfor %}
     </div>

@@ -210,18 +210,18 @@ def showRecipes(category_id):
     else:
         return render_template('category.html', category=category, items=items)
 
-# Show one recipy
-@app.route('/catalog/<int:category_id>/recipes/<int:recipy_id>/')
-def showRecipy(category_id,recipy_id):
+# Show one recipe
+@app.route('/catalog/<int:category_id>/recipes/<int:recipe_id>/')
+def showrecipe(category_id,recipe_id):
     category = session.query(Category).filter_by(id=category_id).one()
-    item = session.query(Item).filter_by(id=recipy_id).one()
+    item = session.query(Item).filter_by(id=recipe_id).one()
     if 'username' not in login_session:
-        return render_template('publicrecipy.html', category=category, item=item)
+        return render_template('publicrecipe.html', category=category, item=item)
     else:
-        return render_template('recipy.html', category=category, item=item)
-# create a recipy
+        return render_template('recipe.html', category=category, item=item)
+# create a recipe
 @app.route('/catalog/<int:category_id>/recipes/new/',methods=['GET','POST'])
-def newRecipy(category_id):
+def newrecipe(category_id):
     if 'username' not in login_session:
         return redirect('/login')
 
@@ -229,19 +229,19 @@ def newRecipy(category_id):
         newItem = Item(title = request.form['name'],description = request.form['description'],category_id=category_id,  user_id=login_session['user_id'])
         session.add(newItem)
         session.commit()
-        flash("new  recipy %s created!" %(newItem.title))
+        flash("new  recipe %s created!" %(newItem.title))
         return redirect(url_for('showRecipes',category_id=category_id))
     else:
         return render_template('new.html', category_id=category_id)
 
-# edit specific recipy
-@app.route('/catalog/<int:category_id>/recipy/<int:recipy_id>/edit/',methods=['GET','POST'])
-def editRecipy(category_id,recipy_id):
-    editedItem = session.query(Item).filter_by(id=recipy_id).one()
+# edit specific recipe
+@app.route('/catalog/<int:category_id>/recipe/<int:recipe_id>/edit/',methods=['GET','POST'])
+def editrecipe(category_id,recipe_id):
+    editedItem = session.query(Item).filter_by(id=recipe_id).one()
     if 'username' not in login_session:
         return redirect('/login')
     if editedItem.user_id != login_session['user_id']:
-        return "<script>function myFunction() {alert('You are not authorized to edit this recipy. Please create your own recipy in order to edit.');}</script><body onload='myFunction()''>"
+        return "<script>function myFunction() {alert('You are not authorized to edit this recipe. Please create your own recipe in order to edit.');}</script><body onload='myFunction()''>"
 
     if request.method == 'POST':
         if request.form['title']:
@@ -253,23 +253,23 @@ def editRecipy(category_id,recipy_id):
 
         session.add(editedItem)
         session.commit()
-        flash("Recipy %s Successfully Edited!" %(editedItem.title))
+        flash("recipe %s Successfully Edited!" %(editedItem.title))
         return redirect(url_for('showRecipes',category_id=editedItem.category_id))
     else:
-        return render_template('edit.html', category_id=category_id, recipy_id=recipy_id, item =editedItem)
+        return render_template('edit.html', category_id=category_id, recipe_id=recipe_id, item =editedItem)
 
-# delete specific recipy
-@app.route('/catalog/<int:category_id>/recipy/<int:recipy_id>/delete/', methods =['GET','POST'])
-def deleteRecipy(category_id,recipy_id):
-    deletedItem = session.query(Item).filter_by(id=recipy_id).one()
+# delete specific recipe
+@app.route('/catalog/<int:category_id>/recipe/<int:recipe_id>/delete/', methods =['GET','POST'])
+def deleterecipe(category_id,recipe_id):
+    deletedItem = session.query(Item).filter_by(id=recipe_id).one()
     if 'username' not in login_session:
         return redirect('/login')
     if deletedItem.user_id != login_session['user_id']:
-        return "<script>function myFunction() {alert('You are not authorized to delete this recipy. Please create your own recipy in order to delete.');}</script><body onload='myFunction()''>"
+        return "<script>function myFunction() {alert('You are not authorized to delete this recipe. Please create your own recipe in order to delete.');}</script><body onload='myFunction()''>"
     if request.method == 'POST':
         session.delete(deletedItem)
         session.commit()
-        flash('Recipy Successfully Deleted')
+        flash('recipe Successfully Deleted')
         return redirect(url_for('showRecipes', category_id=category_id))
     return render_template('delete.html', item=deletedItem)
 
