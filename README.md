@@ -19,3 +19,12 @@ Description of Project
 
 
 ## Resources I used them:
+
+## Future Checklist:
+- [ ] create ico
+- [ ] add more categories
+- [ ] add filters
+- [ ] add search box
+- [ ] add page navgator
+- [ ] optimize the website
+- [x] completed
