@@ -67,4 +67,6 @@ It is a part of Udacity FSND
 - [ ] add search box
 - [ ] add page navgator
 - [ ] optimize the website
+- [ ] change upload image style
+- [ ] upgrade bootstrap 3 to bootstrap 4
 - [x] completed
