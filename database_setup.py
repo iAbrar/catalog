@@ -41,6 +41,7 @@ class Item(Base):
     category = relationship(Category)
     user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(User)
+    nutritions =relationship('Nutritions', backref="nutritionsOfitem", lazy='dynamic')
 
     @property
     def serialize(self):
@@ -50,6 +51,7 @@ class Item(Base):
             'title': self.title,
             'description': self.description,
             'id': self.id,
+            'nutritions': [i.serialize for i in self.nutritions]
         }
 
 class Nutritions(Base):
