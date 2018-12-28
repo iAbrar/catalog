@@ -236,8 +236,9 @@ def editrecipe(category_id,recipe_id):
     if 'username' not in login_session:
         return redirect('/login')
     if editedItem.user_id != login_session['user_id']:
-        return "<script>function myFunction() {alert('You are not authorized to edit this recipe. Please create your own recipe in order to edit.');}</script><body onload='myFunction()''>"
-
+        return """<script>function myFunction() {alert('You are not authorized to edit this recipe. Please create your own recipe in order to edit.');
+         window.location.href = '/catalog/"""+str(category_id)+"/recipes/"+str(recipe_id)+"/';}</script><body onload='myFunction()''>"""
+        return redirect(url_for('showCategories'))
     if request.method == 'POST':
         if request.form['title']:
             editedItem.title = request.form['title']
