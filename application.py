@@ -258,13 +258,25 @@ def editrecipe(category_id,recipe_id):
             editedItem.title = request.form['title']
         if request.form['description']:
             editedItem.description = request.form['description']
+        if request.form['ingredients']:
+            editedItem.ingredients = request.form['ingredients']
+        if request.form['instructions']:
+            editedItem.instructions = request.form['instructions']
+        if request.form['difficulty']:
+            editedItem.difficulty = request.form['difficulty']
+        if request.form['serves']:
+            editedItem.serves = request.form['serves']
+        if request.form['p-time']:
+            editedItem.preparingTime = request.form['p-time']
+        if request.form['c-time']:
+            editedItem.cookingTime = request.form['c-time']
         if request.form['categories']:
             editedItem.category_id = request.form['categories']
 
         session.add(editedItem)
         session.commit()
         flash("recipe %s Successfully Edited!" %(editedItem.title))
-        return redirect(url_for('showRecipes',category_id=editedItem.category_id))
+        return redirect(url_for('showrecipe',category_id=editedItem.category_id,recipe_id=editedItem.id))
     else:
         return render_template('edit.html', category_id=category_id, recipe_id=recipe_id, item =editedItem)
 
