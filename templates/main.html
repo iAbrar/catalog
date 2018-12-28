@@ -61,7 +61,7 @@ http://www.templatemo.com/tm-509-hydro
                <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-nav-first">
                          <li><a href="{{url_for('showCategories')}}" class="smoothScroll">Home</a></li>
-                         <li><a href="#about" class="smoothScroll">About</a></li>
+                         <li><a href="{{url_for('showCategories')}}#about" class="smoothScroll">About</a></li>
                          <li><a href="{{url_for('showRecipes', category_id = 1) }}" class="smoothScroll">Breakfast & Branch</a></li>
                          <li><a href="{{url_for('showRecipes', category_id = 2) }}" class="smoothScroll">Lunch</a></li>
                          <li><a href="{{url_for('showRecipes', category_id = 3) }}" class="smoothScroll">Dinner</a></li>
