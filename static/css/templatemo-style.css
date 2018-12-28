@@ -99,7 +99,9 @@ text-align: justify;
 .flex {
   display: flex; /* equal height of the children */
 }
-
+.d-inline{
+  display: inline;;
+}
   .section-title {
     margin-bottom: 60px;
   }
