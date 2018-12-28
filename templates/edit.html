@@ -23,82 +23,84 @@
             <div class="row">
                <div class="col-md-12 col-sm-12">
                   <div class="section-title">
-                     <h2>Recipes</h2>
+                     <h2>Edit a Recipes</h2>
                      <span class="line-bar">...</span>
                   </div>
                </div>
             </div>
             <div class="row">
                <div class="col-md-12 col-sm-12">
-                                  <form id="" role="form" action="#" method="post">
+                     <form id="" role="form" action="#" method="post">
                      <div class="col-md-6 col-sm-6">
-                        <input type="text" class="form-control" placeholder="Recipe name" id="name" name="name" required="">
+              <input type="text" class="form-control" placeholder="Recipe name" id="title" name="title" value="{{item.title}}"required="">
                      </div>
                      <div class="col-md-6 col-sm-6">
                         <select class="form-control" id="categories" name="categories">
-                           <option>Breakfast & Branch</option>
-                           <option>Lunch</option>
-                           <option>Dinner</option>
+                           <option value="1" {% if item.category_id == 1%}selected{%endif%}>Breakfast & Branch</option>
+                           <option value="2" {% if item.category_id == 2%}selected{%endif%}>Lunch</option>
+                           <option value="3" {% if item.category_id == 3%}selected{%endif%}>Dinner</option>
                         </select>
                      </div>
                      <div class="col-md-3 col-sm-3">
-                        <input type="number" class="form-control" placeholder="Prepare time in minutes" id="" name="p-time" required="">
+                        <input type="number" class="form-control" placeholder="Prepare time in minutes" id="" name="p-time" value="{{item.preparingTime}}"required="">
                      </div>
                      <div class="col-md-3 col-sm-3">
-                        <input type="number" class="form-control" placeholder="Cooking time in minutes" id="c-time" name="c-time" required="">
+                        <input type="number" class="form-control" placeholder="Cooking time in minutes" id="c-time" name="c-time" value="{{item.cookingTime}}" required="">
                      </div>
                      <div class="col-md-3 col-sm-3">
-                        <input type="number" class="form-control" placeholder="serves" id="serves" name="serves" required="">
+                        <input type="number" class="form-control" placeholder="serves" id="serves" name="serves" value="{{item.serves}}"required="">
                      </div>
                      <div class="col-md-3 col-sm-3">
                         <select class="form-control" id="difficulty" name="difficulty">
-                           <option>Easy</option>
-                           <option>Medium</option>
-                           <option>Hard</option>
+                           <option  {% if item.difficulty == 'Easy'%}selected{%endif%}>Easy</option>
+                           <option  {% if item.difficulty == 'Medium'%}selected{%endif%}>Medium</option>
+                           <option  {% if item.difficulty == 'Hard'%}selected{%endif%}>Hard</option>
                         </select>
                      </div>
                      <div class="col-md-12 col-sm-12">
-                        <textarea class="form-control" rows="6" placeholder="description" id="description" name="description" required=""></textarea>
+                        <textarea class="form-control" rows="6" placeholder="description" id="description" name="description"value="" required="">{{item.description}}</textarea>
                      </div>
+                     {% for i in item.nutritions %}
                       <div class="col-md-2 col-sm-2">
-                        <input type="number" class="form-control" placeholder="Energy (kJ)" id="energy" name="energy" required="">
+                        <input type="number" class="form-control" placeholder="Energy (kJ)" id="energy" name="energy" value="{{i.energy}}"required="">
                      </div>
                      <div class="col-md-2 col-sm-2">
-                        <input type="number" class="form-control" placeholder="Calories" id="calories" name="calories" required="">
+                        <input type="number" class="form-control" placeholder="Calories" id="calories" name="calories"value="{{i.calories}}" required="">
                      </div>
                       <div class="col-md-2 col-sm-2">
-                        <input type="number" class="form-control" placeholder="Fat" id="fat" name="fat" required="">
+                        <input type="number" class="form-control" placeholder="Fat" id="fat" name="fat"value="{{i.fat}}" required="">
                      </div>
                      <div class="col-md-2 col-sm-2">
-                        <input type="number" class="form-control" placeholder="Saturated Fat " id="s-fat" name="s-fat" required="">
+                        <input type="number" class="form-control" placeholder="Saturated Fat " id="s-fat" name="s-fat" value="{{i.saturatedFat}}"required="">
                      </div>
                       <div class="col-md-2 col-sm-2">
-                        <input type="number" class="form-control" placeholder="Carbohydrate" id="carbs" name="carbs" required="">
+                        <input type="number" class="form-control" placeholder="Carbohydrate" id="carbs" name="carbs" value="{{i.carbohydrate}}"required="">
                      </div>
                      <div class="col-md-2 col-sm-2">
-                        <input type="number" class="form-control" placeholder="Sugar" id="sugar" name="sugar" required="">
+                        <input type="number" class="form-control" placeholder="Sugar" id="sugar" name="sugar" value="{{i.sugar}}"required="">
                      </div>
                       <div class="col-md-2 col-sm-2">
-                        <input type="number" class="form-control" placeholder="Dietary Fiber " id="fibers" name="fibers" required="">
+                        <input type="number" class="form-control" placeholder="Dietary Fiber " id="fibers" name="fibers" value="{{i.dietaryFiber}}"required="">
                      </div>
                      <div class="col-md-2 col-sm-2">
-                        <input type="number" class="form-control" placeholder="Protein" id="protein" name="protein" required="">
+                        <input type="number" class="form-control" placeholder="Protein" id="protein" name="protein" value="{{i.protein}}"required="">
                      </div>
                       <div class="col-md-2 col-sm-2">
-                        <input type="number" class="form-control" placeholder="Cholesterol" id="chol" name="chol" required="">
+                        <input type="number" class="form-control" placeholder="Cholesterol" id="chol" name="chol" value="{{i.cholesterol}}"required="">
                      </div>
                      <div class="col-md-2 col-sm-2">
-                        <input type="number" class="form-control" placeholder="Sodium" id="sodium" name="sodium" required="">
+                        <input type="number" class="form-control" placeholder="Sodium" id="sodium" name="sodium" value="{{i.sodium}}"required="">
                      </div>
+                       {% endfor %}
                      <div class="col-md-4 col-sm-4">
   <input type="file" class="custom-file-input" id="customFile" name="image">
                      </div>
 
                      <div class="col-md-12 col-sm-12">
-                        <textarea class="form-control" rows="6" placeholder="Ingredients" id="ingredients" name="ingredients" required=""></textarea>
+                        <textarea class="form-control" rows="6" placeholder="Ingredients" id="ingredients" name="ingredients" value=""required="">{{item.ingredients}}</textarea>
                      </div>
                      <div class="col-md-12 col-sm-12">
-                        <textarea class="form-control" rows="6" placeholder="Instructions" id="instructions" name="instructions" required=""></textarea>
+                        <textarea class="form-control" rows="6" placeholder="Instructions" id="instructions" name="instructions" required="">{{item.instructions}}</textarea>
                      </div>
                      <div class="text-center col-md-3 col-sm-6">
                         <input type="submit" class="form-control" name="submit" value="Submit">
