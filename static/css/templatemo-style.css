@@ -87,7 +87,7 @@ http://www.templatemo.com/tm-509-hydro
   }
 
   a:hover, a:active, a:focus {
-    color: #ce3232;
+    color: #FF4324;
     outline: none;
   }
 
@@ -283,7 +283,7 @@ display: block ;
 
   .custom-navbar .nav li a:hover {
     background: transparent;
-    color: #ce3232;
+    color: #FF4324;
   }
 
   .custom-navbar .navbar-nav > li > a:hover,
@@ -293,7 +293,7 @@ display: block ;
 
   .custom-navbar .nav li.active > a {
     background-color: transparent;
-    color: #ce3232;
+    color: #FF4324;
   }
 
   .custom-navbar .navbar-toggle {
@@ -615,7 +615,7 @@ font-weight: bold;
   }
 
   .blog-thumb small,.item-thumb small {
-    color: #ce3232;
+    color: #FF4324;
     font-weight: 500;
     display: block;
   }
@@ -742,12 +742,25 @@ font-weight: bold;
   #contact select {
     color: rgba(20,20,20,0.5);
   }
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
 
-  #contact input[type='submit'] {
-    background: #ce3232;
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+  #contact input[type='submit'], #contact input[type='button']{
+    background: #FF4324;
     border-radius: 100px;
     color: #ffffff;
     font-weight: 500;
+    padding: 0 30px;
   }
 
 
@@ -846,7 +859,7 @@ font-weight: bold;
   }
 
   .social-icon li a:hover {
-    color: #ce3232;
+    color: #FF4324;
   }
 
 
@@ -929,7 +942,7 @@ font-weight: bold;
     color: #ffffff;
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid #ce3232;
+    border-bottom: 1px solid #FF4324;
   }
 
   .modal-dialog .tab-content {
@@ -951,7 +964,7 @@ font-weight: bold;
   }
 
   .modal-dialog form input[type="submit"] {
-    background: #ce3232;
+    background: #FF4324;
     border-color: transparent;
     border-radius: 100px;
     color: #ffffff;
