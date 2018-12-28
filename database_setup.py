@@ -20,7 +20,7 @@ class Category(Base):
     title = Column(String(250), nullable=False)
     user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(User)
-    items =relationship('Item', backref="categoryOfitem", lazy='dynamic')
+    items =relationship('Item', backref="itemOfcategory", lazy='dynamic')
 
     @property
     def serialize(self):
@@ -36,22 +36,37 @@ class Item(Base):
 
     title = Column(String(80), nullable=False)
     id = Column(Integer, primary_key=True)
-    description = Column(String(250))
+    description = Column(String(250), nullable=False)
+    ingredients = Column(String(250), nullable=False)
+    instructions = Column(String(250), nullable=False)
+    difficulty =  Column(String(250), nullable=False)
+    serves = Column(Integer, nullable=False)
+    preparingTime = Column(String(250), nullable=False)
+    cookingTime = Column(String(250), nullable=False)
+    picture = Column(String(250))
+    nutritions =relationship('Nutritions', backref="nutritionsOfitem", lazy='dynamic')
     category_id = Column(Integer, ForeignKey('category.id'))
     category = relationship(Category)
     user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(User)
-    nutritions =relationship('Nutritions', backref="nutritionsOfitem", lazy='dynamic')
 
     @property
     def serialize(self):
         """Return object data in easily serializeable format"""
         return {
+            'id': self.id,
             'category_id': self.category_id,
             'title': self.title,
             'description': self.description,
-            'id': self.id,
+            'ingredients': self.ingredients,
+            'instructions': self.instructions,
+            'difficulty': self.difficulty,
+            'serves': self.serves,
+            'preparing Time': self.preparingTime,
+            'cooking Time': self.cookingTime,
+            'picture':self.picture,
             'nutritions': [i.serialize for i in self.nutritions]
+
         }
 
 class Nutritions(Base):
@@ -68,8 +83,6 @@ class Nutritions(Base):
     protein = Column(String(250), nullable=False)
     cholesterol = Column(String(250), nullable=False)
     sodium = Column(String(250), nullable=False)
-    user_id = Column(Integer, ForeignKey('user.id'))
-    user = relationship(User)
     item_id =  Column(Integer, ForeignKey('item.id'))
     item = relationship(Item)
 
