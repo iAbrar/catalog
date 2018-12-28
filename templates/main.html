@@ -1,14 +1,168 @@
+{% block header %}
+
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
-    </head>
-    <body>
-        <div class="container">
-            {% block content %}
-            {% endblock %}
-        </div>
-    </body>
+<head>
+
+     <title>Recipe</title>
+<!--
+Hydro Template
+http://www.templatemo.com/tm-509-hydro
+-->
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css')}}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css')}}">
+  <!--LOAD PRE-REQUISITES FOR GOOGLE SIGN IN -->
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js">
+  </script>
+
+<script src="//apis.google.com/js/platform.js?onload=start"> </script>
+
+<!-- END PRE-REQUISITES FOR GOOGLE SIGN IN -->
+
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/templatemo-style.css')}}">
+</head>
+<body>
+
+     <!-- PRE LOADER -->
+     <section class="preloader">
+          <div class="spinner">
+               <span class="spinner-rotate"></span>
+          </div>
+     </section>
+{% endblock %}
+
+{% block menu %}
+
+     <!-- MENU -->
+     <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+          <div class="container">
+
+               <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                    </button>
+
+                    <!-- lOGO TEXT HERE -->
+                    <a href="index.html" class="navbar-brand">RECIPE<span class="dot"></span></a>
+               </div>
+
+               <!-- MENU LINKS -->
+               <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-nav-first">
+                         <li><a href="{{url_for('showCategories')}}" class="smoothScroll">Home</a></li>
+                         <li><a href="#about" class="smoothScroll">About</a></li>
+                         <li><a href="#blog" class="smoothScroll">Breakfast & Branch</a></li>
+                         <li><a href="#work" class="smoothScroll">Lunch</a></li>
+                         <li><a href="#contact" class="smoothScroll">Dinner</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+{% endblock %}
+
+{% block login %}
+{% endblock %}
+{% block logout %}
+{% endblock %}
+{% block menu2 %}
+ </ul>
+               </div>
+
+          </div>
+     </section>
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+
+
+{% block footer %}
+     <!-- FOOTER -->
+     <footer data-stellar-background-ratio="0.5">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-5 col-sm-12">
+                         <div class="footer-thumb footer-info">
+                              <h2>RECIPE<span class="dot"></span></h2>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                         </div>
+                    </div>
+
+                    <div class="col-md-2 col-sm-4">
+                         <div class="footer-thumb">
+                              <h2>Company</h2>
+                              <ul class="footer-link">
+                                   <li><a href="#">About Us</a></li>
+                                   <li><a href="#">Join our team</a></li>
+                                   <li><a href="#">Read Blog</a></li>
+                                   <li><a href="#">Press</a></li>
+                              </ul>
+                         </div>
+                    </div>
+
+                    <div class="col-md-2 col-sm-4">
+                         <div class="footer-thumb">
+                              <h2>Services</h2>
+                              <ul class="footer-link">
+                                   <li><a href="#">Pricing</a></li>
+                                   <li><a href="#">Documentation</a></li>
+                                   <li><a href="#">Support</a></li>
+                              </ul>
+                         </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-4">
+                         <div class="footer-thumb">
+                              <h2>Find us</h2>
+                              <p>123 Grand Rama IX, <br> Krung Thep Maha Nakhon 10400</p>
+                         </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12">
+                         <div class="footer-bottom">
+                              <div class="col-md-12 col-sm-12">
+                                   <div class="copyright-text">
+                                        <p>Copyright &copy;<script type="text/javascript">  document.write((new Date()).getFullYear())
+</script></p>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+
+               </div>
+          </div>
+     </footer>
+{% endblock %}
+
+
+{% block signInCallback %}
+
+{% endblock %}
+
+
+{% block script %}
+
+     <!-- SCRIPTS -->
+   <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/jquery.stellar.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/jquery.magnific-popup.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/smoothscroll.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+
+
+</body>
 </html>
+{% endblock %}
