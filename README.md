@@ -69,4 +69,5 @@ It is a part of Udacity FSND
 - [ ] optimize the website
 - [ ] change upload image style
 - [ ] upgrade bootstrap 3 to bootstrap 4
+- [ ] fix login
 - [x] completed
