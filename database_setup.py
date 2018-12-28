@@ -52,6 +52,43 @@ class Item(Base):
             'id': self.id,
         }
 
+class Nutritions(Base):
+    __tablename__ = 'nutritions'
+
+    id = Column(Integer, primary_key=True)
+    energy = Column(String(250), nullable=False)
+    calories = Column(String(250), nullable=False)
+    fat = Column(String(250), nullable=False)
+    saturatedFat = Column(String(250), nullable=False)
+    carbohydrate = Column(String(250), nullable=False)
+    sugar = Column(String(250), nullable=False)
+    dietaryFiber = Column(String(250), nullable=False)
+    protein = Column(String(250), nullable=False)
+    cholesterol = Column(String(250), nullable=False)
+    sodium = Column(String(250), nullable=False)
+    user_id = Column(Integer, ForeignKey('user.id'))
+    user = relationship(User)
+    item_id =  Column(Integer, ForeignKey('item.id'))
+    item = relationship(Item)
+
+
+    @property
+    def serialize(self):
+        """Return object data in easily serializeable format"""
+        return {
+            'id': self.id,
+            'energy' : self.energy,
+            'calories' : self.calories,
+            'fat' : self.fat,
+            'saturatedFat' : self.saturatedFat,
+            'carbohydrate' : self.carbohydrate,
+            'sugar' : self.sugar,
+            'dietaryFiber' : self.dietaryFiber,
+            'protein' : self.protein,
+            'cholesterol' : self.cholesterol,
+            'sodium' : self.sodium,
+        }
+
 engine = create_engine('sqlite:///recipes.db')
 
 
