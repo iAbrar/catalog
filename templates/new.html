@@ -1,4 +1,4 @@
-{% extends "main.html" %}
+<!-- {% extends "main.html" %}
 {% block content %}
 <div class="row">
     <form action="#" method = "post">
@@ -16,3 +16,195 @@
     </form>
 </div>
     {% endblock %}
+
+ -->
+{% extends "main.html" %}
+{% block header %}
+{{ super() }}
+{% endblock %}
+{% block menu %}
+{{ super() }}
+{% endblock %}
+{% block login %}
+<li class="join section-btn"><a id=""href="{{url_for('gdisconnect')}}" data-toggle="modal" data-target="#modal-form">Logout</a></li>
+{% endblock %}
+{% block menu2 %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+      <!-- BLOG HEADER -->
+      <section id="blog-header" data-stellar-background-ratio="0.5">
+         <div class="overlay"></div>
+         <div class="container">
+         </div>
+      </section>
+      <!-- Recipes -->
+      <section id="" data-stellar-background-ratio="0.5">
+         <div class="container">
+
+<!--MESSAGE FLASHING  -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+
+<ul>
+{% for message in messages %}
+  <li><strong>{{message}}</strong></li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+            <div class="row">
+               <div class="col-md-12 col-sm-12">
+<form id="" role="form" action="#" method="post">
+                     <div class="col-md-6 col-sm-6">
+                        <input type="text" class="form-control" placeholder="Recipe name" id="name" name="name" required="">
+                     </div>
+                     <div class="col-md-6 col-sm-6">
+                        <select class="form-control" id="categories" name="categories">
+                           <option>Budget Level</option>
+                           <option>$500 to $1,000</option>
+                           <option>$1,000 to $2,200</option>
+                        </select>
+                     </div>
+                     <div class="col-md-3 col-sm-3">
+                        <input type="number" class="form-control" placeholder="prepare time" id="cf-email" name="cf-email" required="">
+                     </div>
+                     <div class="col-md-3 col-sm-3">
+                        <input type="number" class="form-control" placeholder="cooking time" id="cf-number" name="cf-number" required="">
+                     </div>
+                     <div class="col-md-3 col-sm-3">
+                        <input type="number" class="form-control" placeholder="serves" id="cf-number" name="cf-number" required="">
+                     </div>
+                     <div class="col-md-3 col-sm-3">
+                        <select class="form-control" id="categories" name="categories">
+                           <option>Difficulty</option>
+                           <option>$500 to $1,000</option>
+                           <option>$1,000 to $2,200</option>
+                        </select>
+                     </div>
+                     <div class="col-md-12 col-sm-12">
+                        <textarea class="form-control" rows="6" placeholder="description" id="cf-message" name="cf-message" required=""></textarea>
+                     </div>
+                      <div class="col-md-2 col-sm-2">
+                        <input type="number" class="form-control" placeholder="prepare time" id="cf-email" name="cf-email" required="">
+                     </div>
+                     <div class="col-md-2 col-sm-2">
+                        <input type="number" class="form-control" placeholder="cooking time" id="cf-number" name="cf-number" required="">
+                     </div>
+                      <div class="col-md-2 col-sm-2">
+                        <input type="number" class="form-control" placeholder="prepare time" id="cf-email" name="cf-email" required="">
+                     </div>
+                     <div class="col-md-2 col-sm-2">
+                        <input type="number" class="form-control" placeholder="cooking time" id="cf-number" name="cf-number" required="">
+                     </div>
+                      <div class="col-md-2 col-sm-2">
+                        <input type="number" class="form-control" placeholder="prepare time" id="cf-email" name="cf-email" required="">
+                     </div>
+                     <div class="col-md-2 col-sm-2">
+                        <input type="number" class="form-control" placeholder="cooking time" id="cf-number" name="cf-number" required="">
+                     </div>
+                      <div class="col-md-2 col-sm-2">
+                        <input type="number" class="form-control" placeholder="prepare time" id="cf-email" name="cf-email" required="">
+                     </div>
+                     <div class="col-md-2 col-sm-2">
+                        <input type="number" class="form-control" placeholder="cooking time" id="cf-number" name="cf-number" required="">
+                     </div>
+                      <div class="col-md-2 col-sm-2">
+                        <input type="number" class="form-control" placeholder="prepare time" id="cf-email" name="cf-email" required="">
+                     </div>
+                     <div class="col-md-2 col-sm-2">
+                        <input type="number" class="form-control" placeholder="cooking time" id="cf-number" name="cf-number" required="">
+                     </div>
+                     <div class="col-md-4 col-sm-4">
+  <input type="file" class="custom-file-input" id="customFile">
+                     </div>
+
+                     <div class="col-md-12 col-sm-12">
+                        <textarea class="form-control" rows="6" placeholder="ingradint" id="cf-message" name="cf-message" required=""></textarea>
+                     </div>
+                     <div class="col-md-12 col-sm-12">
+                        <textarea class="form-control" rows="6" placeholder="method" id="cf-message" name="cf-message" required=""></textarea>
+                     </div>
+                     <div class="text-center col-md-3 col-sm-6">
+                        <input type="submit" class="form-control" name="submit" value="Submit">
+                     </div>
+                  </form>
+               </div>
+            </div>
+
+
+         </div>
+         </div>
+      </section>
+{% endblock %}
+<!-- FOOTER -->
+{% block footer %}
+{{ super() }}
+{% endblock %}
+{% block signInCallback %}
+<!-- MODAL -->
+<section class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-lg">
+      <div class="modal-content modal-popup">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-md-12 col-sm-12">
+                     <div class="modal-title">
+                        <h2>RECIPE<span class="dot"></span></h2>
+                     </div>
+                     <!-- NAV TABS -->
+                     <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#sign_up" aria-controls="sign_up" role="tab" data-toggle="tab">Create an account</a></li>
+                        <li><a href="#sign_in" aria-controls="sign_in" role="tab" data-toggle="tab">Sign In</a></li>
+                     </ul>
+                     <!-- TAB PANES -->
+                     <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="sign_up">
+                           <div id="signinButton">
+                              <span class="g-signin"
+                                 data-scope="openid email"
+                                 data-clientid="402840848911-7ftm7s7ov83deljv1l2credbu5l1e96j.apps.googleusercontent.com"
+                                 data-redirecturi="postmessage"
+                                 data-accesstype="offline"
+                                 data-cookiepolicy="single_host_origin"
+                                 data-callback="signInCallback"
+                                 data-approvalprompt="force">
+                              </span>
+                           </div>
+                           <div class="result">asdt</div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade in" id="sign_in">
+                           <div id="signinButton">
+                              <span class="g-signin"
+                                 data-scope="openid email"
+                                 data-clientid="402840848911-7ftm7s7ov83deljv1l2credbu5l1e96j.apps.googleusercontent.com"
+                                 data-redirecturi="postmessage"
+                                 data-accesstype="offline"
+                                 data-cookiepolicy="single_host_origin"
+                                 data-callback="signInCallback"
+                                 data-approvalprompt="force">
+                              </span>
+                           </div>
+                           <div class="result">t</div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- SCRIPTS -->
+
+{% endblock %}
+{% block script %}
+{{ super() }}
+{% endblock %}
