@@ -21,3 +21,161 @@
 {% endfor %}
 </div>
 {% endblock %}
+
+
+{% extends "main.html" %}
+{% block header %}
+{{ super() }}
+{% endblock %}
+{% block menu %}
+{{ super() }}
+{% endblock %}
+{% block login %}
+<li class="join section-btn"><a id=""href="{{url_for('showLogin')}}" data-toggle="modal" data-target="#modal-form">Sign in / Join</a></li>
+{% endblock %}
+{% block menu2 %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+      <!-- BLOG HEADER -->
+      <section id="blog-header" data-stellar-background-ratio="0.5">
+         <div class="overlay"></div>
+         <div class="container">
+         </div>
+      </section>
+      <!-- Recipes -->
+      <section id="" data-stellar-background-ratio="0.5">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12 col-sm-12">
+                  <div class="section-title">
+                     <h2>Recipes</h2>
+                     <span class="line-bar">...</span>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+               <!-- BLOG THUMB -->
+               <div class="media card-thumb">
+                  <div class="card">
+                     <h4>Do you want to add new recipe?</h4>
+                     <a href="blog-detail.html" class="btn section-btn">Add recipe</a>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+               <!-- BLOG THUMB -->
+               <div class="media item-thumb">
+                  <div class="media-object media-left">
+                     <a href="blog-detail.html"><img src="images/blog-image1.jpg" class="img-responsive" alt=""></a>
+                  </div>
+                  <div class="media-body item-info">
+                     <small><i class="fa fa-clock-o"></i> December 22, 2017</small>
+                     <h3><a href="blog-detail.html">How To Find Out  Workspace.</a></h3>
+                     <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                     <a href="blog-detail.html" class="btn section-btn">Read article</a>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+               <!-- BLOG THUMB -->
+               <div class="media item-thumb">
+                  <div class="media-object media-left">
+                     <a href="blog-detail.html"><img src="images/blog-image1.jpg" class="img-responsive" alt=""></a>
+                  </div>
+                  <div class="media-body item-info">
+                     <small><i class="fa fa-clock-o"></i> December 22, 2017</small>
+                     <h3><a href="blog-detail.html">How To Find Out  Workspace.</a></h3>
+                     <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                     <a href="blog-detail.html" class="btn section-btn">Read article</a>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+               <!-- BLOG THUMB -->
+               <div class="media item-thumb">
+                  <div class="media-object media-left">
+                     <a href="blog-detail.html"><img src="images/blog-image1.jpg" class="img-responsive" alt=""></a>
+                  </div>
+                  <div class="media-body item-info">
+                     <small><i class="fa fa-clock-o"></i> December 22, 2017</small>
+                     <h3><a href="blog-detail.html">How To Find Out  Workspace.</a></h3>
+                     <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                     <a href="blog-detail.html" class="btn section-btn">Read article</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+         </div>
+      </section>
+{% endblock %}
+<!-- FOOTER -->
+{% block footer %}
+{{ super() }}
+{% endblock %}
+{% block signInCallback %}
+<!-- MODAL -->
+<section class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-lg">
+      <div class="modal-content modal-popup">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-md-12 col-sm-12">
+                     <div class="modal-title">
+                        <h2>RECIPE<span class="dot"></span></h2>
+                     </div>
+                     <!-- NAV TABS -->
+                     <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#sign_up" aria-controls="sign_up" role="tab" data-toggle="tab">Create an account</a></li>
+                        <li><a href="#sign_in" aria-controls="sign_in" role="tab" data-toggle="tab">Sign In</a></li>
+                     </ul>
+                     <!-- TAB PANES -->
+                     <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="sign_up">
+                           <div id="signinButton">
+                              <span class="g-signin"
+                                 data-scope="openid email"
+                                 data-clientid="402840848911-7ftm7s7ov83deljv1l2credbu5l1e96j.apps.googleusercontent.com"
+                                 data-redirecturi="postmessage"
+                                 data-accesstype="offline"
+                                 data-cookiepolicy="single_host_origin"
+                                 data-callback="signInCallback"
+                                 data-approvalprompt="force">
+                              </span>
+                           </div>
+                           <div class="result">asdt</div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade in" id="sign_in">
+                           <div id="signinButton">
+                              <span class="g-signin"
+                                 data-scope="openid email"
+                                 data-clientid="402840848911-7ftm7s7ov83deljv1l2credbu5l1e96j.apps.googleusercontent.com"
+                                 data-redirecturi="postmessage"
+                                 data-accesstype="offline"
+                                 data-cookiepolicy="single_host_origin"
+                                 data-callback="signInCallback"
+                                 data-approvalprompt="force">
+                              </span>
+                           </div>
+                           <div class="result">t</div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- SCRIPTS -->
+
+{% endblock %}
+{% block script %}
+{{ super() }}
+{% endblock %}
