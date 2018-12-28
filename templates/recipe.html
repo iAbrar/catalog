@@ -45,16 +45,16 @@
                         <h3>How To Find Out  Workspace.</h3>
                         <div class="col-md-4 col-sm-6">
                            <img class="svg responsive-image"src="{{ url_for('static', filename='images/alarm-clock.svg')}}" alt="">
-                           <div > Prep: 20 mins </div>
-                           <div > Cook: 10 mins </div>
+                           <div > Prep: {{item.preparingTime}} mins </div>
+                           <div > Cook: {{item.cookingTime}} mins </div>
                         </div>
                         <div class="col-md-4 col-sm-6">
                            <img class=" svg responsive-image"src="{{ url_for('static', filename='images/serving.svg')}}" alt="">
-                           Serves 4
+                           Serves {{item.serves}}
                         </div>
                         <div class="col-md-4 col-sm-6">
                            <img class="svg responsive-image"src="{{ url_for('static', filename='images/chef-hat.svg')}}" alt="">
-                           Easy
+                           {{item.difficulty}}
                         </div>
                      </div>
                   </div>
@@ -65,52 +65,56 @@
                      <div class="media-body item-info">
                         <table>
                            <tr>
-                              <td>
+                              <td> {% for i in item.nutritions %}
                                  <h3>Nutrition Values </h3>
                               </td>
                               <td id="smallfont"> / per serving</td>
                            </tr>
+
                            <tr>
                               <td>Energy (kJ) </td>
-                              <td>2552 kJ</td>
+                              <td>{{i.energy}} kJ</td>
                            </tr>
+
                            <tr>
                               <td>Calories </td>
-                              <td>2552 kJ</td>
+                              <td>{{i.calories}} kcal</td>
                            </tr>
                            <tr>
                               <td>Fat </td>
-                              <td>2552 kJ</td>
+                              <td>{{i.fat}} g</td>
                            </tr>
                            <tr>
                               <td>Saturated Fat </td>
-                              <td>2552 kJ</td>
+                              <td>{{i.saturatedFat}} g</td>
                            </tr>
                            <tr>
                               <td> Carbohydrate </td>
-                              <td>2552 kJ</td>
+                              <td>{{i.carbohydrate}} g</td>
                            </tr>
                            <tr>
                               <td> Sugar </td>
-                              <td> 17 g </td>
+                              <td> {{i.sugar}} g </td>
                            </tr>
                            <tr>
                               <td> Dietary Fiber </td>
-                              <td> 4 g </td>
+                              <td> {{i.dietaryFiber}} g </td>
                            </tr>
                            <tr>
                               <td> Protein </td>
-                              <td> 31 g </td>
+                              <td> {{i.protein}} g </td>
                            </tr>
                            <tr>
                               <td> Cholesterol </td>
-                              <td> 135 mg </td>
+                              <td> 1{{i.cholesterol}} mg </td>
                            </tr>
                            <tr>
                               <td> Sodium </td>
-                              <td> 1060 mg </td>
+                              <td> {{i.sodium}} mg </td>
                            </tr>
+                           {% endfor %}
                         </table>
+
                      </div>
                   </div>
                </div>
@@ -123,14 +127,8 @@
                      <div class="media-body item-info">
                         <h3>Ingredients</h3>
                         <ul>
-                           <li>200g bulghar wheat</li>
-                           <li>50g pumpkin seeds</li>
-                           <li>3 tbsp olive or rapeseed oil</li>
-                           <li>250g pack halloumi cheese, cut into 10-12 slices</li>
-                           <li>1 cucumber, halved lengthways, seeds scooped out and cut into chunks</li>
-                           <li>large bunch either parsley, mint, coriander or basil, or a mixture, chopped, reserving a few leaves to serve</li>
-                           <li>zest and juice 2 lemons</li>
-                           <li>¼ watermelon, cut into chunks, or a 400g pack ready-prepared</li>
+                           <li>{{item.ingredients}}</li>
+
                         </ul>
                      </div>
                   </div>
@@ -142,23 +140,12 @@
                   <!-- BLOG THUMB -->
                   <div class="media card-thumb">
                      <div class="media-body item-info">
-                        <h3>Method</h3>
+                        <h3>Instructions</h3>
                         <ol>
                            <li>
-                              <p>
-                                 Boil the kettle. Put the bulghar wheat in a bowl with some seasoning, pour over enough hot water to just cover, then cover with cling film and set aside to absorb the liquid while you prepare the remaining ingredients.
-                              </p>
+                             {{item.instructions}}
                            </li>
-                           <li>
-                              <p>
-                                 Heat a large frying pan and add the pumpkin seeds, toast for a few mins until the seeds start to crackle and pop, then tip into a dish and set aside. Heat a drizzle of oil in the pan. Add the halloumi slices and fry for 2-3 mins on each side or until golden.
-                              </p>
-                           </li>
-                           <li>
-                              <p>
-                                 Unwrap the bulghar wheat and check that it is tender (if not, re-cover and leave for another 5 mins). All the water should have been absorbed, but if not, drain the excess. Add the remaining oil, the cucumber, herbs, lemon zest and juice, and pumpkin seeds to the bulghar wheat and toss well. Transfer to a platter, top with the watermelon and halloumi, and scatter with the reserved herbs.
-                              </p>
-                           </li>
+
                         </ol>
                      </div>
                   </div>
