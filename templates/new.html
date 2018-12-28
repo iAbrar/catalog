@@ -7,37 +7,30 @@
 {{ super() }}
 {% endblock %}
 {% block login %}
-<li class="join section-btn"><a id=""href="{{url_for('gdisconnect')}}" data-toggle="modal" data-target="#modal-form">Logout</a></li>
+<li class="join section-btn"><a id=""href="{{url_for('gdisconnect')}}" >Logout</a></li>
 {% endblock %}
 {% block menu2 %}
 {{ super() }}
 {% endblock %}
 {% block content %}
-      <!-- BLOG HEADER -->
-      <section id="blog-header" data-stellar-background-ratio="0.5">
+         <section id="blog-header" data-stellar-background-ratio="0.5">
          <div class="overlay"></div>
-         <div class="container">
-         </div>
+         <div class="container"> </div>
       </section>
       <!-- Recipes -->
-      <section id="" data-stellar-background-ratio="0.5">
+      <section id="contact" data-stellar-background-ratio="0.5">
          <div class="container">
-
-<!--MESSAGE FLASHING  -->
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-
-<ul>
-{% for message in messages %}
-  <li><strong>{{message}}</strong></li>
-  {% endfor %}
-</ul>
-{% endif %}
-{% endwith %}
-
             <div class="row">
                <div class="col-md-12 col-sm-12">
-<form id="" role="form" action="#" method="post">
+                  <div class="section-title">
+                     <h2>Recipes</h2>
+                     <span class="line-bar">...</span>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12 col-sm-12">
+                  <form id="" role="form" action="#" method="post">
                      <div class="col-md-6 col-sm-6">
                         <input type="text" class="form-control" placeholder="Recipe name" id="name" name="name" required="">
                      </div>
@@ -113,9 +106,6 @@
                   </form>
                </div>
             </div>
-
-
-         </div>
          </div>
       </section>
 {% endblock %}
