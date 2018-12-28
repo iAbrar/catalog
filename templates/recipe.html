@@ -164,12 +164,12 @@
                   </div>
                </div>
             <!--methods-->
-    <!--edit/delete buttons -->
-          <a href="blog-detail.html" class="btn section-btn">Add recipe</a>
-           <a href="blog-detail.html" class="btn section-btn">Add recipe</a>
-          <!--edit/delete buttons -->
-         </div>
 
+         </div>
+    <!--edit/delete buttons -->
+          <a href="{{url_for('editrecipe', category_id = category.id,recipe_id=item.id) }}" class="btn section-btn">Edit</a>
+           <a href="{{url_for('deleterecipe', category_id = category.id,recipe_id=item.id) }}" class="btn section-btn">Delete</a>
+          <!--edit/delete buttons -->
       </section>
 
 {% endblock %}
