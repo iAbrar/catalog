@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, jsonify, url_for, f
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from database_setup import Category, Base, Item, User
+from database_setup import Category, Base, Item, User, Nutritions
 
 from flask import session as login_session
 import random, string
@@ -190,6 +190,9 @@ def showCategoriesJSON():
 def showCategories():
     categories = session.query(Category).all()
     items = session.query(Item).limit(4)
+    print(categories)
+    for i in items:
+        print(i)
     if 'username' not in login_session:
         return render_template('index.html', categories=categories, items=items)
     else:
@@ -221,7 +224,18 @@ def newrecipe(category_id):
         return redirect('/login')
 
     if request.method == 'POST':
-        newItem = Item(title = request.form['name'],description = request.form['description'],category_id=category_id,  user_id=login_session['user_id'])
+        nutritions1 = [Nutritions(energy = request.form['energy'],calories = request.form['calories'],
+                    fat = request.form['fat'],saturatedFat = request.form['s-fat'],
+                    carbohydrate = request.form['carbs'],sugar = request.form['sugar'],
+                    dietaryFiber = request.form['fibers'],protein = request.form['protein'],
+                    cholesterol = request.form['chol'],sodium = request.form['sodium'])]
+
+        newItem = Item(title = request.form['name'],description = request.form['description'],
+                        ingredients = request.form['ingredients'], instructions = request.form['instructions'],
+                        difficulty = request.form['difficulty'], serves = request.form['serves'],
+                        preparingTime = request.form['p-time'], cookingTime = request.form['c-time'],
+                        nutritions=nutritions1,picture=request.form['image'],
+                        category_id=category_id,  user_id=login_session['user_id'])
         session.add(newItem)
         session.commit()
         flash("new  recipe %s created!" %(newItem.title))
@@ -244,8 +258,8 @@ def editrecipe(category_id,recipe_id):
             editedItem.title = request.form['title']
         if request.form['description']:
             editedItem.description = request.form['description']
-        if request.form['meal']:
-            editedItem.category_id = request.form['meal']
+        if request.form['categories']:
+            editedItem.category_id = request.form['categories']
 
         session.add(editedItem)
         session.commit()
