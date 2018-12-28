@@ -1,0 +1,240 @@
+{% extends "main.html" %}
+{% block header %}
+{{ super() }}
+{% endblock %}
+{% block menu %}
+{{ super() }}
+{% endblock %}
+{% block login %}
+<li class="join section-btn"><a id=""href="{{url_for('showLogin')}}" data-toggle="modal" data-target="#modal-form">Sign in / Join</a></li>
+{% endblock %}
+{% block menu2 %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+<!-- HOME -->
+<section id="home" data-stellar-background-ratio="0.5">
+   <div class="overlay"></div>
+   <div class="container">
+      <div class="row">
+         <div class="col-md-6 col-sm-12">
+            <div class="home-info">
+               <h1>RECIPES FOR YOU NEXT MEAL</h1>
+               <h3>Get inspired by many of new and exciting recipes today!</h3>
+               <a href="" class="btn section-btn">Get inspired</a>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- ABOUT -->
+<section id="about" >
+   <div class="container">
+      <div class="row">
+         <div class="col-md-8 col-sm-12">
+            <div class="about-info">
+               <div class="section-title">
+                  <h2>Let us introduce</h2>
+                  <span class="line-bar">...</span>
+               </div>
+               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+            </div>
+         </div>
+         <div class="col-md-4 col-sm-12">
+            <div class="about-image">
+               <img src="{{ url_for('static', filename='images/about-image.png') }}" class="img-responsive" alt="">
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- WORK -->
+<section id="work" data-stellar-background-ratio="0.5">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12 col-sm-12">
+            <div class="section-title">
+               <h2>Categories</h2>
+               <span class="line-bar">...</span>
+            </div>
+         </div>
+         <div class="col-md-4 col-sm-12">
+            <!-- WORK THUMB -->
+            <div class="work-thumb">
+               <a href="images/work-image1.jpg" class="image-popup">
+                  <img src="{{ url_for('static', filename='images/work-image1.jpg') }}" class="img-responsive" alt="Work">
+                  <div class="work-info">
+                     <h3>Breakfast &amp; Branch</h3>
+                     <small>Click for more</small>
+                  </div>
+               </a>
+            </div>
+         </div>
+         <div class="col-md-4 col-sm-12">
+            <!-- WORK THUMB -->
+            <div class="work-thumb">
+               <a href="images/work-image2.jpg" class="image-popup">
+                  <img src="{{ url_for('static', filename='images/work-image2.jpg') }}" class="img-responsive" alt="Work">
+                  <div class="work-info">
+                     <h3>Lunch</h3>
+                     <small>Click for more</small>
+                  </div>
+               </a>
+            </div>
+         </div>
+         <div class="col-md-4 col-sm-12">
+            <!-- WORK THUMB -->
+            <div class="work-thumb">
+               <a href="images/work-image3.jpg" class="image-popup">
+                  <img src="{{ url_for('static', filename='images/work-image3.jpg') }}" class="img-responsive" alt="Work">
+                  <div class="work-info">
+                     <h3>Dinner</h3>
+                     <small>Click for more</small>
+                  </div>
+               </a>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- BLOG -->
+<section id="blog" data-stellar-background-ratio="0.5">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12 col-sm-12">
+            <div class="section-title">
+               <h2>Last Recipes</h2>
+               <span class="line-bar">...</span>
+            </div>
+         </div>
+         <div class="col-md-6 col-sm-6">
+            <!-- BLOG THUMB -->
+            <div class="media blog-thumb">
+               <div class="media-object media-left">
+                  <a href="blog-detail.html"><img src="{{ url_for('static', filename='images/blog-image1.jpg') }}" class="img-responsive" alt=""></a>
+               </div>
+               <div class="media-body blog-info">
+                  <small><i class="fa fa-clock-o"></i> December 22, 2017</small>
+                  <h3><a href="blog-detail.html">How To Find Out  Workspace.</a></h3>
+                  <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                  <a href="blog-detail.html" class="btn section-btn">Read article</a>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-6 col-sm-6">
+            <!-- BLOG THUMB -->
+            <div class="media blog-thumb">
+               <div class="media-object media-left">
+                  <a href="blog-detail.html"><img src="{{ url_for('static', filename='images/blog-image2.jpg') }}" class="img-responsive" alt=""></a>
+               </div>
+               <div class="media-body blog-info">
+                  <small><i class="fa fa-clock-o"></i> December 18, 2017</small>
+                  <h3><a href="blog-detail.html">woman sportwear.</a></h3>
+                  <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                  <a href="blog-detail.html" class="btn section-btn">Read more</a>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-6 col-sm-6">
+            <!-- BLOG THUMB -->
+            <div class="media blog-thumb">
+               <div class="media-object media-left">
+                  <a href="blog-detail.html"><img src="{{ url_for('static', filename='images/blog-image3.jpg') }}" class="img-responsive" alt=""></a>
+               </div>
+               <div class="media-body blog-info">
+                  <small><i class="fa fa-clock-o"></i> December 14, 2017</small>
+                  <h3><a href="blog-detail.html">new creative fashion.</a></h3>
+                  <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                  <a href="blog-detail.html" class="btn section-btn">Read article</a>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-6 col-sm-6">
+            <!-- BLOG THUMB -->
+            <div class="media blog-thumb">
+               <div class="media-object media-left">
+                  <a href="blog-detail.html"><img src="{{ url_for('static', filename='images/blog-image4.jpg') }}" class="img-responsive" alt=""></a>
+               </div>
+               <div class="media-body blog-info">
+                  <small><i class="fa fa-clock-o"></i> December 10, 2017</small>
+                  <h3><a href="blog-detail.html">minimalist design trend in 2018.</a></h3>
+                  <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                  <a href="blog-detail.html" class="btn section-btn">View Detail</a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+{% endblock %}
+<!-- FOOTER -->
+{% block footer %}
+{{ super() }}
+{% endblock %}
+{% block signInCallback %}
+<!-- MODAL -->
+<section class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-lg">
+      <div class="modal-content modal-popup">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-md-12 col-sm-12">
+                     <div class="modal-title">
+                        <h2>RECIPE<span class="dot"></span></h2>
+                     </div>
+                     <!-- NAV TABS -->
+                     <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#sign_up" aria-controls="sign_up" role="tab" data-toggle="tab">Create an account</a></li>
+                        <li><a href="#sign_in" aria-controls="sign_in" role="tab" data-toggle="tab">Sign In</a></li>
+                     </ul>
+                     <!-- TAB PANES -->
+                     <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="sign_up">
+                           <div id="signinButton">
+                              <span class="g-signin"
+                                 data-scope="openid email"
+                                 data-clientid="402840848911-7ftm7s7ov83deljv1l2credbu5l1e96j.apps.googleusercontent.com"
+                                 data-redirecturi="postmessage"
+                                 data-accesstype="offline"
+                                 data-cookiepolicy="single_host_origin"
+                                 data-callback="signInCallback"
+                                 data-approvalprompt="force">
+                              </span>
+                           </div>
+                           <div class="result">asdt</div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade in" id="sign_in">
+                           <div id="signinButton">
+                              <span class="g-signin"
+                                 data-scope="openid email"
+                                 data-clientid="402840848911-7ftm7s7ov83deljv1l2credbu5l1e96j.apps.googleusercontent.com"
+                                 data-redirecturi="postmessage"
+                                 data-accesstype="offline"
+                                 data-cookiepolicy="single_host_origin"
+                                 data-callback="signInCallback"
+                                 data-approvalprompt="force">
+                              </span>
+                           </div>
+                           <div class="result">t</div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- SCRIPTS -->
+
+{% endblock %}
+{% block script %}
+{{ super() }}
+{% endblock %}
