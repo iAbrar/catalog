@@ -203,10 +203,19 @@ def showCategories():
 def showRecipes(category_id):
     category = session.query(Category).filter_by(id=category_id).one()
     items = session.query(Item).filter_by(category_id=category_id).all()
-    if 'username' not in login_session:
-        return render_template('publiccategory.html', category=category, items=items)
+
+     # This code to show specific imaage for each category
+    if category_id == 1:
+        img = url_for('static', filename='images/work-image1.jpg')
+    elif category_id == 2:
+        img = url_for('static', filename='images/work-image2.jpg')
     else:
-        return render_template('category.html', category=category, items=items)
+        img = url_for('static', filename='images/work-image3.jpg')
+    # code end #
+    if 'username' not in login_session:
+        return render_template('publiccategory.html', category=category, items=items, img=img)
+    else:
+        return render_template('category.html', category=category, items=items, img=img)
 
 # Show one recipe
 @app.route('/catalog/<int:category_id>/recipes/<int:recipe_id>/')
