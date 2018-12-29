@@ -1,92 +1,39 @@
-
-{% extends "main.html" %}
-{% block header %}
-{{ super() }}
-{% endblock %}
-{% block menu %}
-{{ super() }}
-{% endblock %}
-{% block login %}
-<li class="join section-btn"><a id=""href="{{url_for('gdisconnect')}}" data-toggle="" data-target="">Logout</a></li>
-{% endblock %}
-{% block menu2 %}
-{{ super() }}
-{% endblock %}
-{% block content %}
-      <!-- BLOG HEADER -->
-      <section id="blog-header" data-stellar-background-ratio="0.5"
-      style="background-image: url({{img}});">
-         <div class="overlay"></div>
-         <div class="container">
+{% extends "main.html" %} {% block header %} {{ super() }} {% endblock %} {% block menu %} {{ super() }} {% endblock %} {% block login %}
+<li class="join section-btn"><a id="" href="{{url_for('gdisconnect')}}" data-toggle="" data-target="">Logout</a></li> {% endblock %} {% block menu2 %} {{ super() }} {% endblock %} {% block content %}
+<!-- BLOG HEADER -->
+<section id="blog-header" data-stellar-background-ratio="0.5" style="background-image: url({{img}});">
+   <div class="overlay"></div>
+   <div class="container"> </div>
+</section>
+<!-- Recipes -->
+<section id="" data-stellar-background-ratio="0.5">
+   <div class="container">
+      <!--MESSAGE FLASHING  -->{% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+      <div class="alert alert-success"> <strong>Success!  </strong>{{message}} </div> {% endfor %} {% endif %} {% endwith %}
+      <div class="row">
+         <div class="col-md-12 col-sm-12">
+            <div class="section-title">
+               <h2>{{category.title}}</h2> <span class="line-bar">...</span> </div>
          </div>
-      </section>
-      <!-- Recipes -->
-      <section id="" data-stellar-background-ratio="0.5">
-         <div class="container">
-
-           <!--MESSAGE FLASHING  -->
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-
-
-{% for message in messages %}
-<div class="alert alert-success">
-  <strong>Success!  </strong>{{message}}
-</div>
-
-
-  {% endfor %}
-
-{% endif %}
-{% endwith %}
-
-            <div class="row">
-               <div class="col-md-12 col-sm-12">
-                  <div class="section-title">
-                     <h2>{{category.title}}</h2>
-
-                     <span class="line-bar">...</span>
-                  </div>
-               </div>
-            </div>
-            <div class="col-md-12 col-sm-12">
-               <!-- BLOG THUMB -->
-               <div class="media card-thumb">
-                  <div class="card">
-                     <h4>Do you want to add new recipe?</h4>
-                     <a href="{{url_for('newrecipe', category_id = category.id) }}" class="btn section-btn">Add recipe</a>
-                  </div>
-               </div>
-            </div>
-           {% for item in items%}
-            <div class="col-md-12 col-sm-12">
-               <!-- BLOG THUMB -->
-               <div class="media item-thumb">
-                  <div class="media-object media-left">
-                     <a href="{{url_for('showrecipe', category_id = item.category_id,recipe_id=item.id) }}"><img src="images/blog-image1.jpg" class="img-responsive" alt=""></a>
-                  </div>
-                  <div class="media-body item-info">
-                     <small><i class="fa fa-clock-o"></i> December 22, 2017</small>
-                     <h3><a href="{{url_for('showrecipe', category_id = item.category_id,recipe_id=item.id) }}">{{item.title}}</a></h3>
-                     <p>{{item.description}}</p>
-                     <a href="{{url_for('showrecipe', category_id = item.category_id,recipe_id=item.id) }}" class="btn section-btn">Read more</a>
-                  </div>
-               </div>
-            </div>
-            {%endfor%}
+      </div>
+      <div class="col-md-12 col-sm-12">
+         <!-- BLOG THUMB -->
+         <div class="media card-thumb">
+            <div class="card">
+               <h4>Do you want to add new recipe?</h4> <a href="{{url_for('newrecipe', category_id = category.id) }}" class="btn section-btn">Add recipe</a> </div>
          </div>
+      </div> {% for item in items%}
+      <div class="col-md-12 col-sm-12">
+         <!-- BLOG THUMB -->
+         <div class="media item-thumb">
+            <div class="media-object media-left">
+               <a href="{{url_for('showrecipe', category_id = item.category_id,recipe_id=item.id) }}"><img src="images/blog-image1.jpg" class="img-responsive" alt=""></a>
+            </div>
+            <div class="media-body item-info"> <small><i class="fa fa-clock-o"></i> December 22, 2017</small>
+               <h3><a href="{{url_for('showrecipe', category_id = item.category_id,recipe_id=item.id) }}">{{item.title}}</a></h3>
+               <p>{{item.description}}</p> <a href="{{url_for('showrecipe', category_id = item.category_id,recipe_id=item.id) }}" class="btn section-btn">Read more</a> </div>
          </div>
-      </section>
-{% endblock %}
-<!-- FOOTER -->
-{% block footer %}
-{{ super() }}
-{% endblock %}
-{% block signInCallback %}
-
-<!-- SCRIPTS -->
-
-{% endblock %}
-{% block script %}
-{{ super() }}
-{% endblock %}
+      </div> {%endfor%} </div>
+</section> {% endblock %}
+<!-- FOOTER -->{% block footer %} {{ super() }} {% endblock %} {% block signInCallback %}
+<!-- SCRIPTS -->{% endblock %} {% block script %} {{ super() }} {% endblock %}

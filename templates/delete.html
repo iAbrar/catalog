@@ -1,60 +1,32 @@
-
-{% extends "main.html" %}
-{% block header %}
-{{ super() }}
-{% endblock %}
-{% block menu %}
-{{ super() }}
-{% endblock %}
-{% block login %}
-<li class="join section-btn"><a id=""href="{{url_for('gdisconnect')}}" data-toggle="" data-target="">Logout</a></li>
-{% endblock %}
-{% block menu2 %}
-{{ super() }}
-{% endblock %}
-{% block content %}
-         <!-- BLOG HEADER -->
-      <section id="blog-header" data-stellar-background-ratio="0.5">
-         <div class="overlay"></div>
-         <div class="container"> </div>
-      </section>
-      <!-- Recipes -->
-      <section id="" data-stellar-background-ratio="0.5">
-         <div class="container">
+{% extends "main.html" %} {% block header %} {{ super() }} {% endblock
+%} {% block menu %} {{ super() }} {% endblock %} {% block login %}
+<li
+class="join section-btn"><a id="" href="{{url_for('gdisconnect')}}" data-toggle="" data-target="">Logout</a></li>
+    {% endblock %} {% block menu2 %} {{ super() }} {% endblock %} {% block
+    content %}
+    <!-- BLOG HEADER -->
+    <section id="blog-header" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container"> </div>
+    </section>
+    <!-- Recipes -->
+    <section id="" data-stellar-background-ratio="0.5">
+        <div class="container">
             <div class="row">
-               <div class="col-md-12 col-sm-12">
-                  <div class="section-title">
-                     <h2>{{item.title}}</h2>
-                     <span class="line-bar">...</span>
-                  </div>
-               </div>
+                <div class="col-md-12 col-sm-12">
+                    <div class="section-title">
+                        <h2>{{item.title}}</h2> <span class="line-bar">...</span> </div>
+                </div>
             </div>
             <div class="row">
-               <h3>Are you sure you want to delete?</h3>
-
-            </div>
-             <!--edit/delete buttons -->
-      <form class="d-inline" action="#" method="POST">
-<input type="submit" class="btn section-btn" id="submit" value="Delete" >
-
-
-</form>
-         <a href="{{url_for('showRecipes', category_id = item.category_id) }}" class="btn section-btn">Cancel</a>
-         <!--edit/delete buttons -->
-         </div>
-
-      </section>
-{% endblock %}
-
-<!-- FOOTER -->
-{% block footer %}
-{{ super() }}
-{% endblock %}
-{% block signInCallback %}
-
-<!-- SCRIPTS -->
-
-{% endblock %}
-{% block script %}
-{{ super() }}
-{% endblock %}
+                <h3>Are you sure you want to delete?</h3> </div>
+            <!--edit/delete buttons -->
+            <form class="d-inline" action="#" method="POST">
+                <input type="submit" class="btn section-btn" id="submit" value="Delete"> </form> <a href="{{url_for('showRecipes', category_id = item.category_id) }}"
+            class="btn section-btn">Cancel</a>
+            <!--edit/delete buttons -->
+        </div>
+    </section> {% endblock %}
+    <!-- FOOTER -->{% block footer %} {{ super() }} {% endblock %} {% block signInCallback
+    %}
+    <!-- SCRIPTS -->{% endblock %} {% block script %} {{ super() }} {% endblock %}
