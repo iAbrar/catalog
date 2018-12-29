@@ -96,15 +96,22 @@ ul,ol {
   text-align: justify;
 }
 
+p{
+text-align: justify;
+}
+
 .flex {
   display: flex;
  /* equal height of the children */
   flex-wrap: wrap;
 }
 
+.icons{
+padding: 5% !important;
+}
+
 .d-inline {
   display: inline;
-  ;
 }
 
 .section-title {
@@ -663,7 +670,7 @@ td:nth-child(odd) {
 }
 
 .item-info {
-  padding-left: 50px;
+  padding: 0 50px ;
 }
 
 .blog-info h3 {
