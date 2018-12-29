@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, jsonify, url_for, flash
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, desc
 from sqlalchemy.orm import sessionmaker
 
 from database_setup import Category, Base, Item, User, Nutritions
@@ -189,7 +189,8 @@ def showCategoriesJSON():
 @app.route('/catalog/')
 def showCategories():
     categories = session.query(Category).all()
-    items = session.query(Item).limit(4)
+    # get the last added items
+    items = session.query(Item).order_by(desc(Item.id)).limit(4)
     print(categories)
     for i in items:
         print(i)
