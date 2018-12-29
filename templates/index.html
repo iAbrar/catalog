@@ -113,10 +113,10 @@
             <!-- BLOG THUMB -->
             <div class="media blog-thumb">
                <div class="media-object media-left">
-                  <a href="{{url_for('showrecipe', category_id = item.category_id,recipe_id=item.id) }}"><img src="{{ url_for('static', filename='images/blog-image1.jpg') }}" class="img-responsive" alt=""></a>
+                  <a href="{{url_for('showrecipe', category_id = item.category_id,recipe_id=item.id) }}"><img src="{{item.picture}}" class="img-responsive" alt=""></a>
                </div>
                <div class="media-body blog-info">
-                  <small><i class="fa fa-clock-o"></i> December 22, 2017</small>
+                  <small><i class="fa fa-clock-o"></i> <!-- December 22, 2017 --></small>
                   <h3><a href="{{url_for('showrecipe', category_id = item.category_id,recipe_id=item.id) }}">{{item.title}}</a></h3>
                   <p>{{item.description}}</p>
                   <a href="{{url_for('showrecipe', category_id = item.category_id,recipe_id=item.id) }}" class="btn section-btn">Read more</a>
