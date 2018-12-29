@@ -4,7 +4,11 @@ It is a part of Udacity FSND the catalog project
 It is a web application for recipes and allow you to create your own recipes and share them with other in the app.
 
 ## Project Screen Shot(s)
+Home page
+![](https://github.com/iAbrar/catalog/blob/master/home.png)
 
+Flash message
+![](https://github.com/iAbrar/catalog/blob/master/flash%20message.png)
 
 ## Installation and Setup Instructions
 1. Download and install [Vagrant](https://www.vagrantup.com/downloads.html).
@@ -37,10 +41,6 @@ It is a web application for recipes and allow you to create your own recipes and
     ```bash
     sudo python3 -m pip install --upgrade flask
     ```
-12. Run the following command to set add some data:
-    ```bash
-    python seeder.py
-    ```
 13. Run this application:
     ```bash
     python3 application.py
@@ -71,6 +71,8 @@ It is a web application for recipes and allow you to create your own recipes and
     - [Flat icon](https://www.picpng.com/)
 2. [Google Fonts](https://fonts.google.com/)
 3. [Boostrap Template](https://templatemo.com/tm-509-hydro)
+4. [HTML Beautifier](http://beautifytools.com/)
+5. Some recipes and images from [Hello Freash](https://www.hellofresh.com/)
 
 ## Future Checklist:
 - [ ] create ico
@@ -87,4 +89,5 @@ It is a web application for recipes and allow you to create your own recipes and
 - [ ] create pravite view for recipes
 - [ ] add print recipe
 - [ ] add more category such: snaks ..  etc
+- [ ] add rating the recipe
 - [x] completed
