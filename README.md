@@ -1,7 +1,7 @@
 # RECIPE
-It is a part of Udacity FSND
+It is a part of Udacity FSND the catalog project
 > You will develop an application that provides a list of items within a variety of categories as well as provide a user registration and authentication system. Registered users will have the ability to post, edit and delete their own items.
-
+It is a web application for recipes and allow you to create your own recipes and share them with other in the app.
 
 ## Project Screen Shot(s)
 
@@ -49,16 +49,28 @@ It is a part of Udacity FSND
 
 
 ## API Reference
+- [Google API](https://console.developers.google.com/)
 
-
-## Technology:
+## Technology, Languages and Freamworks:
 - HTML
 - JS
 - Ajax
 - Bootstrap 4
+- Flask
+- Python
 
 
 ## Resources I used them:
+1. Images & icons
+  - [PNG MART](https://www.pngmart.com/)
+  - [pic png](https://www.picpng.com/)
+  - [PNG ALL](http://www.pngall.com/)
+  - [Flat icon](https://www.picpng.com/)
+  - [Pexels](https://www.pexels.com)
+  - [Foodiesfeed](https://www.foodiesfeed.com/)
+  - [Flat icon](https://www.picpng.com/)
+2. [Google Fonts](https://fonts.google.com/)
+3. [Boostrap Template](https://templatemo.com/tm-509-hydro)
 
 ## Future Checklist:
 - [ ] create ico
@@ -72,4 +84,7 @@ It is a part of Udacity FSND
 - [ ] fix login style
 - [ ] allow user to upload image from his/her device
 - [ ] add date to each recipe
+- [ ] create pravite view for recipes
+- [ ] add print recipe
+- [ ] add more category such: snaks ..  etc
 - [x] completed
