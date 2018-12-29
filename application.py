@@ -213,10 +213,15 @@ def showRecipes(category_id):
 def showrecipe(category_id,recipe_id):
     category = session.query(Category).filter_by(id=category_id).one()
     item = session.query(Item).filter_by(id=recipe_id).one()
+    # sprate their values in list to show the later in <li>
+    ingredients = item.ingredients
+    ingredients = ingredients.split("\n")
+    instructions = item.instructions
+    instructions = instructions.split("\n")
     if 'username' not in login_session:
-        return render_template('publicrecipe.html', category=category, item=item)
+        return render_template('publicrecipe.html', category=category, item=item,ingredients=ingredients,instructions=instructions)
     else:
-        return render_template('recipe.html', category=category, item=item)
+        return render_template('recipe.html', category=category, item=item,ingredients=ingredients,instructions=instructions)
 # create a recipe
 @app.route('/catalog/<int:category_id>/recipes/new/',methods=['GET','POST'])
 def newrecipe(category_id):
