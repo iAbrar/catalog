@@ -93,10 +93,13 @@ class="join section-btn"><a id="" href="{{url_for('gdisconnect')}}" data-toggle=
             <div class="row">
                 <div class="col-md-12 col-sm-12">
                     <div class="section-title">
-                        <h2>Last Recipes</h2> <span class="line-bar">...</span> </div>
+                        <h2>Last Recipes</h2> <span class="line-bar">...</span>
+                    </div>
                 </div>
-                {% for item in (items) %}
-                <div class="col-md-6 col-sm-6">
+            </div>
+            <div class="flex row">
+ {% for item in (items) %}
+                <div class="flex col-md-6 col-sm-6">
                     <!-- BLOG THUMB -->
                     <div class="media blog-thumb">
                         <div class="media-object media-left">
@@ -105,10 +108,12 @@ class="join section-btn"><a id="" href="{{url_for('gdisconnect')}}" data-toggle=
                         </div>
                         <div class="media-body blog-info"> <small><!--<i class="fa fa-clock-o"></i>  December 22, 2017 --></small>
                             <h3><a href="{{url_for('showrecipe', category_id = item.category_id,recipe_id=item.id) }}">{{item.title}}</a></h3>
-                            <p>{{item.description}}</p> <a href="{{url_for('showrecipe', category_id = item.category_id,recipe_id=item.id) }}"
+                            <!-- <p>{{item.description}}</p>  --><a href="{{url_for('showrecipe', category_id = item.category_id,recipe_id=item.id) }}"
                             class="btn section-btn">Read more</a> </div>
                     </div>
-                </div> {% endfor %} </div>
+                </div>
+{% endfor %}
+            </div>
         </div>
     </section> {% endblock %}
     <!-- FOOTER -->{% block footer %} {{ super() }} {% endblock %} {% block signInCallback
