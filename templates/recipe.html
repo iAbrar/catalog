@@ -22,6 +22,21 @@
       <!-- Recipes -->
       <section id="" data-stellar-background-ratio="0.5">
          <div class="container">
+            <!--MESSAGE FLASHING  -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+
+
+{% for message in messages %}
+<div class="alert alert-success">
+  <strong>Success!  </strong>{{message}}
+</div>
+
+
+  {% endfor %}
+
+{% endif %}
+{% endwith %}
             <div class="row">
                <div class="col-md-12 col-sm-12">
                      <div class="section-title">

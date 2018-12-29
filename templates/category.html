@@ -24,15 +24,19 @@
       <section id="" data-stellar-background-ratio="0.5">
          <div class="container">
 
-<!--MESSAGE FLASHING  -->
+           <!--MESSAGE FLASHING  -->
 {% with messages = get_flashed_messages() %}
 {% if messages %}
 
-<ul>
+
 {% for message in messages %}
-  <li><strong>{{message}}</strong></li>
+<div class="alert alert-success">
+  <strong>Success!  </strong>{{message}}
+</div>
+
+
   {% endfor %}
-</ul>
+
 {% endif %}
 {% endwith %}
 

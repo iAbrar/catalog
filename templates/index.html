@@ -30,6 +30,19 @@
 <!-- ABOUT -->
 <section id="about" >
    <div class="container">
+      {% with messages = get_flashed_messages() %}
+{% if messages %}
+
+
+{% for message in messages %}
+<div class="alert alert-success">
+  <strong>Success!  </strong>{{message}}
+</div>
+
+  {% endfor %}
+
+{% endif %}
+{% endwith %}
       <div class="row">
          <div class="col-md-8 col-sm-12">
             <div class="about-info">
@@ -113,10 +126,10 @@
             <!-- BLOG THUMB -->
             <div class="media blog-thumb">
                <div class="media-object media-left">
-                  <a href="{{url_for('showrecipe', category_id = item.category_id,recipe_id=item.id) }}"><img src="{{item.picture}}" class="img-responsive" alt=""></a>
+                  <a href="{{url_for('showrecipe', category_id = item.category_id,recipe_id=item.id) }}"><img src="{{item.picture}}" class="img-responsive" alt="recipe image"></a>
                </div>
                <div class="media-body blog-info">
-                  <small><i class="fa fa-clock-o"></i> <!-- December 22, 2017 --></small>
+                  <small><!-- <i class="fa fa-clock-o"></i> December 22, 2017 --></small>
                   <h3><a href="{{url_for('showrecipe', category_id = item.category_id,recipe_id=item.id) }}">{{item.title}}</a></h3>
                   <p>{{item.description}}</p>
                   <a href="{{url_for('showrecipe', category_id = item.category_id,recipe_id=item.id) }}" class="btn section-btn">Read more</a>
