@@ -77,6 +77,7 @@ Flash message
 ## Future Checklist:
 - [ ] create ico
 - [ ] add more categories
+- [ ] add more APIs such: facebook, outlook, twitter ..etc
 - [ ] add filters
 - [ ] add search box
 - [ ] add page navgator
