@@ -262,6 +262,8 @@ def newrecipe(category_id):
 @app.route('/catalog/<int:category_id>/recipe/<int:recipe_id>/edit/',methods=['GET','POST'])
 def editrecipe(category_id,recipe_id):
     editedItem = session.query(Item).filter_by(id=recipe_id).one()
+    nutritions = session.query(Nutritions).filter_by(item_id=editedItem.id).one()
+
     if 'username' not in login_session:
         return redirect('/login')
     if editedItem.user_id != login_session['user_id']:
@@ -289,6 +291,26 @@ def editrecipe(category_id,recipe_id):
             editedItem.picture = request.form['image']
         if request.form['categories']:
             editedItem.category_id = request.form['categories']
+        if request.form['energy']:
+            nutritions.energy = request.form['energy']
+        if request.form['calories']:
+            nutritions.calories = request.form['calories']
+        if request.form['fat']:
+            nutritions.fat = request.form['fat']
+        if request.form['fat']:
+            nutritions.saturatedFat = request.form['s-fat']
+        if request.form['s-fat']:
+            nutritions.carbohydrate = request.form['carbs']
+        if request.form['carbs']:
+            nutritions.sugar = request.form['sugar']
+        if request.form['fibers']:
+            nutritions.dietaryFiber = request.form['fibers']
+        if request.form['protein']:
+            nutritions.protein = request.form['protein']
+        if request.form['chol']:
+            nutritions.cholesterol = request.form['chol']
+        if request.form['sodium']:
+            nutritions.sodium = request.form['sodium']
 
         session.add(editedItem)
         session.commit()
