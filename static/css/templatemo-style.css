@@ -534,7 +534,7 @@ line-height: 1em;
   }
 
   #blog-header {
-    background: url('../images/work-image1.jpg') no-repeat center center;
+    background:  no-repeat center center;
     background-size: cover;
     display: -webkit-box;
     display: -webkit-flex;

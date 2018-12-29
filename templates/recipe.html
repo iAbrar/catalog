@@ -15,7 +15,7 @@
 {% block content %}
 <!-- HOME -->
       <!-- BLOG HEADER -->
-      <section id="blog-header" data-stellar-background-ratio="0.5">
+      <section id="blog-header" data-stellar-background-ratio="0.5" style="background-image: url({{item.picture}});">
          <div class="overlay"></div>
          <div class="container"> </div>
       </section>
@@ -26,6 +26,7 @@
                <div class="col-md-12 col-sm-12">
                      <div class="section-title">
                         <h2>{{item.title}}</h2>
+
                         <span class="line-bar">...</span>
                      </div>
                </div>
@@ -126,10 +127,12 @@
                   <div class="media card-thumb">
                      <div class="media-body item-info">
                         <h3>Ingredients</h3>
+                        {%for i in ingredients%}
                         <ul>
-                           <li>{{item.ingredients}}</li>
+                           <li>{{i}}</li>
 
                         </ul>
+                        {% endfor %}
                      </div>
                   </div>
                </div>
@@ -141,12 +144,13 @@
                   <div class="media card-thumb">
                      <div class="media-body item-info">
                         <h3>Instructions</h3>
+                          {%for i in instructions%}
                         <ol>
                            <li>
-                             {{item.instructions}}
+                             {{i}}
                            </li>
-
                         </ol>
+                        {% endfor %}
                      </div>
                   </div>
                </div>
