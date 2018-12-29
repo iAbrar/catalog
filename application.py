@@ -184,6 +184,21 @@ def showCategoriesJSON():
     categories = session.query(Category).all()
     return jsonify(categories=[i.serialize for i in categories])
 
+# JSON Show all recipes for one category
+@app.route('/catalog/<int:category_id>/recipes/JSON')
+def showRecipesJSON(category_id):
+    category = session.query(Category).filter_by(id=category_id).one()
+    items = session.query(Item).filter_by(category_id=category_id).all()
+    return jsonify(items=[i.serialize for i in items])
+
+# JSON Show recipe information
+@app.route('/catalog/<int:category_id>/recipes/<int:recipe_id>/')
+def showrecipeJSON(category_id,recipe_id):
+    category = session.query(Category).filter_by(id=category_id).one()
+    item = session.query(Item).filter_by(id=recipe_id).one()
+    return jsonify(recipe=item.serialize)
+
+
 # Show all categories
 @app.route('/')
 @app.route('/catalog/')
