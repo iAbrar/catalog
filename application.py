@@ -284,6 +284,8 @@ def editrecipe(category_id,recipe_id):
             editedItem.preparingTime = request.form['p-time']
         if request.form['c-time']:
             editedItem.cookingTime = request.form['c-time']
+        if request.form['image']:
+            editedItem.picture = request.form['image']
         if request.form['categories']:
             editedItem.category_id = request.form['categories']
 
