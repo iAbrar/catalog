@@ -62,13 +62,13 @@ It is a web application for recipes and allow you to create your own recipes and
 
 ## Resources I used them:
 1. Images & icons
-  - [PNG MART](https://www.pngmart.com/)
-  - [pic png](https://www.picpng.com/)
-  - [PNG ALL](http://www.pngall.com/)
-  - [Flat icon](https://www.picpng.com/)
-  - [Pexels](https://www.pexels.com)
-  - [Foodiesfeed](https://www.foodiesfeed.com/)
-  - [Flat icon](https://www.picpng.com/)
+    - [PNG MART](https://www.pngmart.com/)
+    - [pic png](https://www.picpng.com/)
+    - [PNG ALL](http://www.pngall.com/)
+    - [Flat icon](https://www.picpng.com/)
+    - [Pexels](https://www.pexels.com)
+    - [Foodiesfeed](https://www.foodiesfeed.com/)
+    - [Flat icon](https://www.picpng.com/)
 2. [Google Fonts](https://fonts.google.com/)
 3. [Boostrap Template](https://templatemo.com/tm-509-hydro)
 
