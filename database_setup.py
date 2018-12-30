@@ -22,7 +22,8 @@ class Category(Base):
     title = Column(String(250), nullable=False)
     user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(User)
-    items = relationship('Item', backref="itemOfcategory", lazy='dynamic')
+    items = relationship('Item', backref="itemOfcategory", lazy='dynamic',
+                         cascade="all, delete-orphan")
 
     @property
     def serialize(self):
@@ -48,7 +49,7 @@ class Item(Base):
     cookingTime = Column(String(250), nullable=False)
     picture = Column(String(250))
     nutritions = relationship('Nutritions', backref="nutritionsOfitem",
-                              lazy='dynamic')
+                              lazy='dynamic', cascade="all, delete-orphan")
     category_id = Column(Integer, ForeignKey('category.id'))
     category = relationship(Category)
     user_id = Column(Integer, ForeignKey('user.id'))
