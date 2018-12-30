@@ -220,9 +220,6 @@ def showCategories():
     categories = session.query(Category).all()
     # get the last added items
     items = session.query(Item).order_by(desc(Item.id)).limit(4)
-    print(categories)
-    for i in items:
-        print(i)
     if 'username' not in login_session:
         return render_template('index.html', categories=categories,
                                items=items)
