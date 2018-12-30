@@ -5,6 +5,7 @@ from sqlalchemy import create_engine
 
 Base = declarative_base()
 
+
 class User(Base):
     __tablename__ = 'user'
 
@@ -13,6 +14,7 @@ class User(Base):
     email = Column(String(250), nullable=False)
     photo = Column(String(250))
 
+
 class Category(Base):
     __tablename__ = 'category'
 
@@ -20,7 +22,7 @@ class Category(Base):
     title = Column(String(250), nullable=False)
     user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(User)
-    items =relationship('Item', backref="itemOfcategory", lazy='dynamic')
+    items = relationship('Item', backref="itemOfcategory", lazy='dynamic')
 
     @property
     def serialize(self):
@@ -31,6 +33,7 @@ class Category(Base):
             'items': [i.serialize for i in self.items]
         }
 
+
 class Item(Base):
     __tablename__ = 'item'
 
@@ -39,12 +42,13 @@ class Item(Base):
     description = Column(String(250), nullable=False)
     ingredients = Column(String(250), nullable=False)
     instructions = Column(String(250), nullable=False)
-    difficulty =  Column(String(250), nullable=False)
+    difficulty = Column(String(250), nullable=False)
     serves = Column(Integer, nullable=False)
     preparingTime = Column(String(250), nullable=False)
     cookingTime = Column(String(250), nullable=False)
     picture = Column(String(250))
-    nutritions =relationship('Nutritions', backref="nutritionsOfitem", lazy='dynamic')
+    nutritions = relationship('Nutritions', backref="nutritionsOfitem",
+                              lazy='dynamic')
     category_id = Column(Integer, ForeignKey('category.id'))
     category = relationship(Category)
     user_id = Column(Integer, ForeignKey('user.id'))
@@ -64,10 +68,11 @@ class Item(Base):
             'serves': self.serves,
             'preparing Time': self.preparingTime,
             'cooking Time': self.cookingTime,
-            'picture':self.picture,
+            'picture': self.picture,
             'nutritions': [i.serialize for i in self.nutritions]
 
         }
+
 
 class Nutritions(Base):
     __tablename__ = 'nutritions'
@@ -83,25 +88,24 @@ class Nutritions(Base):
     protein = Column(String(250), nullable=False)
     cholesterol = Column(String(250), nullable=False)
     sodium = Column(String(250), nullable=False)
-    item_id =  Column(Integer, ForeignKey('item.id'))
+    item_id = Column(Integer, ForeignKey('item.id'))
     item = relationship(Item)
-
 
     @property
     def serialize(self):
         """Return object data in easily serializeable format"""
         return {
             'id': self.id,
-            'energy' : self.energy,
-            'calories' : self.calories,
-            'fat' : self.fat,
-            'saturatedFat' : self.saturatedFat,
-            'carbohydrate' : self.carbohydrate,
-            'sugar' : self.sugar,
-            'dietaryFiber' : self.dietaryFiber,
-            'protein' : self.protein,
-            'cholesterol' : self.cholesterol,
-            'sodium' : self.sodium,
+            'energy': self.energy,
+            'calories': self.calories,
+            'fat': self.fat,
+            'saturatedFat': self.saturatedFat,
+            'carbohydrate': self.carbohydrate,
+            'sugar': self.sugar,
+            'dietaryFiber': self.dietaryFiber,
+            'protein': self.protein,
+            'cholesterol': self.cholesterol,
+            'sodium': self.sodium,
         }
 
 engine = create_engine('sqlite:///recipes.db')
