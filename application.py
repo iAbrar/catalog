@@ -206,7 +206,7 @@ def showRecipesJSON(category_id):
 
 
 # JSON Show recipe information
-@app.route('/catalog/<int:category_id>/recipes/<int:recipe_id>/')
+@app.route('/catalog/<int:category_id>/recipes/<int:recipe_id>/JSON')
 def showrecipeJSON(category_id, recipe_id):
     category = session.query(Category).filter_by(id=category_id).one()
     item = session.query(Item).filter_by(id=recipe_id).one()
