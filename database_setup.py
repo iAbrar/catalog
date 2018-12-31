@@ -2,6 +2,7 @@ from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
+from sqlalchemy.orm import backref
 
 Base = declarative_base()
 
@@ -22,8 +23,6 @@ class Category(Base):
     title = Column(String(250), nullable=False)
     user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(User)
-    items = relationship('Item', backref="itemOfcategory", lazy='dynamic',
-                         cascade="all, delete-orphan")
 
     @property
     def serialize(self):
@@ -48,10 +47,8 @@ class Item(Base):
     preparingTime = Column(String(250), nullable=False)
     cookingTime = Column(String(250), nullable=False)
     picture = Column(String(250))
-    nutritions = relationship('Nutritions', backref="nutritionsOfitem",
-                              lazy='dynamic', cascade="all, delete-orphan")
     category_id = Column(Integer, ForeignKey('category.id'))
-    category = relationship(Category)
+    category = relationship(Category, backref=backref('items', cascade='all, delete-orphan'))
     user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(User)
 
@@ -90,7 +87,7 @@ class Nutritions(Base):
     cholesterol = Column(String(250), nullable=False)
     sodium = Column(String(250), nullable=False)
     item_id = Column(Integer, ForeignKey('item.id'))
-    item = relationship(Item)
+    item = relationship(Item, backref=backref('nutritions',cascade='all, delete-orphan'))
 
     @property
     def serialize(self):
